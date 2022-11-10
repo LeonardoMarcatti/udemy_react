@@ -1,0 +1,15 @@
+Quando exportamos algo como default estamos limitando a exportação a um único elemento e no arquivo onde importamos a exportação default podemos nomear da forma que quisermos pois a importação sempre apontará para o mesmo elemento.
+
+Quando exportamos sem a palavra chave default devemos, no arquivo onde importamos, usar o mesmo nome da exportação entre chaves. É chamado named exports.
+
+Ex.: 
+
+export.js
+
+const a = 'teste';
+const b = 'teste2';
+export { a, b };
+
+import.js
+
+import { a } from 'export.js';
