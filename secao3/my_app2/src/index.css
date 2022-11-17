@@ -7,6 +7,8 @@
 h2,
 p {
   color: white;
+  width: auto;
+  text-align: center;
 }
 
 html {

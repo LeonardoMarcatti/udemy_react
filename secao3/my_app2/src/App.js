@@ -1,7 +1,7 @@
 import Expenses from "./components/Expenses";
 import React from "react";
 
-function App() {
+const App = () => {
   const expenses = [
     {
       id: 'e1',
@@ -31,8 +31,7 @@ function App() {
   ];
   return (
     <div>
-      <h2>Let's get started!</h2>
-      <p>This is a paragraph!</p>
+      <h2>Expense list</h2>
       <React.StrictMode>
         <Expenses data={expenses} />
       </React.StrictMode>
