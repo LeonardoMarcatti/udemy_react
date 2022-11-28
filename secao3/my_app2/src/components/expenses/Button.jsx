@@ -7,7 +7,7 @@ function Button(props) {
       className={className}
       disabled={disabled}
     >
-      Click me!
+      Update
     </button>
   )
 }
