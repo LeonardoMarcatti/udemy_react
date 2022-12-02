@@ -5,7 +5,6 @@ class ChartBar extends React.Component{
   fillHeight = (val) => `${val}%`;
   render(){
     const{value, label, max} = this.props;
-    // console.log(max, value, typeof(max), typeof(value));
     let maxValue = '0%';
     if (max > 0) {
       maxValue =  this.fillHeight(Math.round((value/max)*100));

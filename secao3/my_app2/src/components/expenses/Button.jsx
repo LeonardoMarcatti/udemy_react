@@ -1,10 +1,11 @@
 function Button(props) {
-  const { onClick, className, value } = props;
+  const { className, value, onDelExpense, id } = props;
   return (
     <button
       type="button"
-      onClick={onClick}
       className={className}
+      id={id}
+      onClick={onDelExpense}
     >
       {value}
     </button>

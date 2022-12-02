@@ -6,7 +6,7 @@ import ExpensesList from './ExpensesList';
 import ExpesesChart from './ExpensesChart';
 
 function Expenses(props) {
-  const {data} = props;
+  const {data, onDelExpense} = props;
   const [year, setYear] = useState('2019');
   const handleYear = (e) => {
     const {value} = e.target;
@@ -18,9 +18,9 @@ function Expenses(props) {
   return (
     <div>
       <Card className="expenses">
-      <ExpensesFilter onSetYear={handleYear} selectedYear={year}/>
-      <ExpesesChart expenses={itens}/>
-      <ExpensesList data={itens}/>  
+        <ExpensesFilter onSetYear={handleYear} selectedYear={year}/>
+        <ExpesesChart expenses={itens}/>
+        <ExpensesList data={itens} onDelExpense={onDelExpense}/>  
       </Card>
     </div>
   )

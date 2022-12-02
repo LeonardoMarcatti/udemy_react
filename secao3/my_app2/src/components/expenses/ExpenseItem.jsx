@@ -5,7 +5,7 @@ import React, {useState} from 'react';
 import Button from './Button';
 
 const ExpenseItem = (props) => {
-  const {data:{amount, date}} = props;
+  const {data:{amount, date}, onDelExpense, id} = props;
   const [newTitle] = useState(props.data.title);
 
   const formatter = new Intl.NumberFormat('en-US', {style: 'currency', currency: 'USD'});
@@ -20,10 +20,13 @@ const ExpenseItem = (props) => {
           <Button
             className="btn btn-danger btn-sm"
             value="Delete"
+            onDelExpense={onDelExpense}
+            id={id}
           />
           <Button
             className="btn btn-success btn-sm"
             value="Update"
+            id={id}
           />
         </div>
       </div>

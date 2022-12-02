@@ -48,11 +48,16 @@ const App = () => {
     setExpense((prevState) => [e, ...prevState]);
   }
 
+  const delExpense = e => {
+    const {id} = e.target;
+    setExpense((prevState) => prevState.filter(el => el.id !== id));
+  }
+
   return (
     <div>
       <h2>Expense list</h2>
         <NewExpense onAddExpense={addExpense}/>
-        <Expenses data={expenseList} />
+        <Expenses data={expenseList} onDelExpense={delExpense}/>
     </div>
   );
 }

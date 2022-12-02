@@ -19,8 +19,6 @@ class ExpesesChart extends React.Component{
       {label:'Dez', value: 0}
     ];
 
-    console.log(expenses);
-
     for (const expense of expenses) {
       const month = new Date(expense.date).getMonth();
       chartDataPoints[month].value += expense.amount;
