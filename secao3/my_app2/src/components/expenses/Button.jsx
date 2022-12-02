@@ -1,13 +1,12 @@
 function Button(props) {
-  const { onClick, className, disabled } = props;
+  const { onClick, className, value } = props;
   return (
     <button
       type="button"
       onClick={onClick}
       className={className}
-      disabled={disabled}
     >
-      Update
+      {value}
     </button>
   )
 }

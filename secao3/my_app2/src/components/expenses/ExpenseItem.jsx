@@ -6,24 +6,29 @@ import Button from './Button';
 
 const ExpenseItem = (props) => {
   const {data:{amount, date}} = props;
-  const [newTitle, setTitle] = useState(props.data.title);
-  const [disabled, setEnable] = useState(false);
-
-  const handler = () => {
-    setTitle('Updated!');
-    setEnable(true);
-  }
+  const [newTitle] = useState(props.data.title);
 
   const formatter = new Intl.NumberFormat('en-US', {style: 'currency', currency: 'USD'});
   return (
+    <li>
     <Card className="expense-item">
       <Date data={date} />
       <div className="expense-item__description">
         <h2>{ newTitle }</h2>
         <div className="expense-item__price">{formatter.format(amount)}</div>
-        <Button onClick={handler} className="btn btn-danger" disabled={disabled}/>
+        <div className="edition">
+          <Button
+            className="btn btn-danger btn-sm"
+            value="Delete"
+          />
+          <Button
+            className="btn btn-success btn-sm"
+            value="Update"
+          />
+        </div>
       </div>
     </Card>
+    </li>
   )
 }
 

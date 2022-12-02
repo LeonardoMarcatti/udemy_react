@@ -6,8 +6,7 @@ class ExpenseForm extends React.Component {
     date: '',
     formatedDate: '',
     title:'',
-    amount: '',
-    status: false
+    amount: ''
   }
 
   formateDate = (e) => {
@@ -22,15 +21,12 @@ class ExpenseForm extends React.Component {
         [name]: new Date(this.formateDate(value)),
         formatedDate: value
       });
-      console.log(this.formateDate(value));
+    } else if(name === 'amount'){
+      this.setState({[name]: Number(value)});
     } else {
       this.setState({[name]: value});
     }
   }
-
-  handleClick = () => this.setState((prevState) => ({
-    status: !prevState.status
-    }));
 
   handleSubmit = (e) =>{
     e.preventDefault();
@@ -41,12 +37,15 @@ class ExpenseForm extends React.Component {
       formatedDate: '',
       title:'',
       amount: '',
-      status: false
     })
+
+    const {onShowForm} = this.props;
+    onShowForm();
   }
 
   render(){
     const {formatedDate, title, amount, status} = this.state;
+    const {onShowForm} = this.props;
     return (
       <form action="" method="post" onSubmit={this.handleSubmit}>
         <div className="new-expense__controls">
@@ -64,12 +63,8 @@ class ExpenseForm extends React.Component {
           </div>
         </div>
         <div className="new-expense__actions">
-          <button type="submit" disabled={status} >Add Expense</button>
-          <button type="button" onClick={this.handleClick}>
-            {
-              (status)? 'OFF' : 'ON'
-            }
-          </button>
+          <button type="submit" disabled={status}>Add Expense</button>
+          <button type="button" onClick={onShowForm}>Cancel</button>
         </div>
       </form>
     )
