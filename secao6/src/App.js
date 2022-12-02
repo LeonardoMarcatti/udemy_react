@@ -18,12 +18,7 @@ const App = () => {
     });
   };
 
-  const deleteItemHandler = goalId => {
-    setCourseGoals(prevGoals => {
-      const updatedGoals = prevGoals.filter(goal => goal.id !== goalId);
-      return updatedGoals;
-    });
-  };
+  const deleteItemHandler = goalId => setCourseGoals(prevGoals => prevGoals.filter(goal => goal.id !== goalId));
 
   let content = (
     <p style={{ textAlign: 'center' }}>No goals found. Maybe add one?</p>
