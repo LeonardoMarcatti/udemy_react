@@ -9,7 +9,7 @@ class NewExpense extends React.Component {
   }
 
   saveHandler = (e) => {
-    const data = {...e, id: Math.random()}
+    const data = {...e, id: Math.random().toString()}
     const {onAddExpense} = this.props;
     onAddExpense(data);
   }

@@ -45,11 +45,13 @@ const App = () => {
   const [expenseList, setExpense] = useState(expenses);
 
   const addExpense = e => {
+    console.log(e);
     setExpense((prevState) => [e, ...prevState]);
   }
 
   const delExpense = e => {
     const {id} = e.target;
+    console.log(id, typeof(id));
     setExpense((prevState) => prevState.filter(el => el.id !== id));
   }
 
