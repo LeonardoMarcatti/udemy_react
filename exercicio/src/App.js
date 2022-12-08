@@ -14,7 +14,6 @@ function App() {
 
   const handleItens = () => {
     const length = balls.length;
-    console.log(length);
     const myArray = balls.filter((el, i) => i < length);
     myArray.pop();
     return myArray;

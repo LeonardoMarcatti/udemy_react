@@ -1,12 +1,11 @@
 import React from 'react';
-
 import CourseGoalItem from '../CourseGoalItem/CourseGoalItem';
-import './CourseGoalList.css';
+import styles from './CourseGoalList.module.css';
 
 const CourseGoalList = props => {
   const {items, onDeleteItem} = props;
   return (
-    <ul className="goal-list">
+    <ul className={`${styles['goal-list']}`}>
       {items.map(goal => (
         <CourseGoalItem
           key={goal.id}

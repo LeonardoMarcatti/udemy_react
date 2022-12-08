@@ -1,18 +1,18 @@
 import React from 'react';
-
-import './CourseGoalItem.css';
+import styles from './CourseGoalItem.module.css';
 
 const CourseGoalItem = props => {
   // const [deleteText, setDeleteText] = useState('');
+  const {onDelete, id, text} = props;
 
   const deleteHandler = () => {
     // setDeleteText('(Deleted!)');
-    props.onDelete(props.id);
+    onDelete(id);
   };
 
   return (
-    <li className="goal-item" onClick={deleteHandler}>
-      {props.text}
+    <li className={`${styles['goal-item']}`} onClick={deleteHandler}>
+      {text}
     </li>
   );
 };
