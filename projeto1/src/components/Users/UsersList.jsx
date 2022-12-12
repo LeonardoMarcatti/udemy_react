@@ -9,7 +9,7 @@ class UsersList extends React.Component{
       <Card className={styles.users}>
         <ul>
           {
-            users.map((el, i) => <li key={Math.random()} id={i}>{`${el.userName} - ${el.age} years old`}</li>)
+            users.map((el) => <li key={Math.random()} id={el.id} >{`${el.userName} - ${el.age} years old`}</li>)
           }
         </ul>
       </Card>

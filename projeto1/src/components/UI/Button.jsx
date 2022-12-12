@@ -3,9 +3,9 @@ import style from './button.module.css';
 
 class Button extends React.Component {
   render(){
-    const {type, children} = this.props;
+    const {type, children, onClearError} = this.props;
     return (
-      <button className={style.button} type={type || 'button'}>{children}</button>
+      <button className={style.button} type={type || 'button'} onClick={onClearError}>{children}</button>
     ) 
   }
 };

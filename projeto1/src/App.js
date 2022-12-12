@@ -5,15 +5,17 @@ import UsersList from './components/Users/UsersList';
 function App() {
   const [usersList, setUsersList] = useState([]);
 
-  const addUserHandler = (userName, age) => {
-    setUsersList((prevState) => [...prevState, {userName, age}]);
+  const addUserHandler = (userName, age, id) => {
+    setUsersList((prevState) => [...prevState, {userName, age, id}]);
   };
 
   return (
-    <div>
+    <>
       <AddUser onAddUser={addUserHandler}/>
-      <UsersList users={usersList}/>
-    </div>
+      {
+        usersList.length > 0 && <UsersList users={usersList} />
+      }
+    </>
   );
 }
 
