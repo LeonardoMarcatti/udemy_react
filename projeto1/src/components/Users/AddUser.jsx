@@ -1,62 +1,42 @@
-import React from "react";
+import React, {useState, useRef} from "react";
 import Card from "../UI/Card";
 import styles from './addUser.module.css';
 import Button from "../UI/Button";
 import ErrorModal from '../UI/ErrorModal';
 
-class AddUser extends React.Component{
-  state = {
-    userName: '',
-    age: 0,
-    id: '',
-    error: false
-  };
+const AddUser = props => {
+  const userName = useRef('');
+  const age = useRef(0);
+  const [error, setError] = useState(false);
 
-  addUserHandler = (e) => {
-    const {onAddUser} = this.props;
+  const addUserHandler = (e) => {
     e.preventDefault();
-    const {userName, age} = this.state;
-    if (userName.length === 0 || age < 0) {
-      this.setState({error: {title: 'Invalid input', message: 'Please enter valid name and age'}})
+    const inputName = userName.current.value;
+    const inputAge = Number(age.current.value);
+    if (inputName.trim().length === 0 || inputAge < 0) {
+      setError({title: 'Input error', message: 'Insert a name and age correctly'});
       return null;
-    }
-    onAddUser(userName, age, Math.random());
-    this.setState({userName: '', age: 0, id: ''});
+    };
+    const id = Math.random();
+    props.onAddUser(inputName, inputAge, id);
+    userName.current.value = '';
+    age.current.value = 0;
   };
 
-  clearError = () => this.setState({error: false});
+  const clearError = () => setError(false);
 
-  stateHandler = e => {
-    const {name, value} = e.target;
-    if (name === 'age') {
-      if (Number(value) < 0) {
-        return null;
-      } else {
-        this.setState({[name]: Number(value)});
-      }
-    };
-
-    if (value.trim().length > 0) {
-      this.setState({[name]: value});
-    } else {
-      this.setState({[name]: ''});
-    };
-  };
-
-  render(){
-    const {userName, age, error} = this.state;
     return (
       <>
-      { error && <ErrorModal title={error.title} message={error.message} onClearError={this.clearError}/> }
+      { error && <ErrorModal title={error.title} message="Insert name and age" onClearError={clearError}/> }
       <Card className={styles.input} >
-        <form action="" method="post" onSubmit={this.addUserHandler}>
+        <form action="" method="post" onSubmit={addUserHandler}>
           <div>
             <label htmlFor="username">Name:</label>
-            <input type="text" name="userName" id="userName" value={userName} onChange={this.stateHandler}/>
+            <input type="text" name="userName" id="userName" ref={userName}/>
           </div>
           <div>
             <label htmlFor="age">Age:</label>
-            <input type="number" name="age" id="age" min="0" value={age} onChange={this.stateHandler}/>
+            <input type="number" name="age" id="age" min="0" ref={age} />
           </div>
           <div>
             <Button type="submit">Submit</Button>
@@ -66,7 +46,5 @@ class AddUser extends React.Component{
       </>
     )
   }
-  
-}
 
 export default AddUser;

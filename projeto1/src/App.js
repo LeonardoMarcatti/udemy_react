@@ -9,11 +9,16 @@ function App() {
     setUsersList((prevState) => [...prevState, {userName, age, id}]);
   };
 
+  const deleteUser = e => {
+    const {id} = e.target;
+    setUsersList((prevState) => prevState.filter(el => el.id !== Number(id)));
+  }
+
   return (
     <>
       <AddUser onAddUser={addUserHandler}/>
       {
-        usersList.length > 0 && <UsersList users={usersList} />
+        usersList.length > 0 && <UsersList users={usersList} onDeleteUser={deleteUser}/>
       }
     </>
   );
