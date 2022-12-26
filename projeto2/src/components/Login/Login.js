@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 
 import Card from '../UI/Card/Card';
 import classes from './Login.module.css';
@@ -11,22 +11,22 @@ const Login = (props) => {
   const [passwordIsValid, setPasswordIsValid] = useState();
   const [formIsValid, setFormIsValid] = useState(false);
 
+  /**
+   * ! Aqui o "efeito colateral" é chamar uma segunda função - setFormIsValid - sempre que uma tecla é acionada
+   * ! A cada acionamento de tecla chamamos as ações setEnteredEmail e setEnteredPassword
+   */
+  useEffect(() => {
+    setFormIsValid(enteredEmail.includes('@') && enteredPassword.length > 6);
+  }, [enteredEmail, enteredPassword]);
+
   const emailChangeHandler = (event) => {
     const {value} = event.target
     setEnteredEmail(value);
-
-    setFormIsValid(
-      value.includes('@') && enteredPassword.trim().length > 6
-    );
   };
 
   const passwordChangeHandler = (event) => {
     const {value} = event.target
     setEnteredPassword(value);
-
-    setFormIsValid(
-      value.trim().length > 6 && enteredEmail.includes('@')
-    );
   };
 
   const validateEmailHandler = () => {
