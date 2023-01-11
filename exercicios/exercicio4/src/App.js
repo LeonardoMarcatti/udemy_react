@@ -4,7 +4,7 @@ import Label from './component/Label';
 import Button from './component/Button';
 import Radio from './component/Radio';
 import DataLabel from './context/dataLabel';
-import './App.css';
+import styles from './App.module.css';
 
 function App() {
   const [isValid, setValid] = useState(false)
@@ -152,11 +152,11 @@ function App() {
 
   const handleSubmit = e => {
     e.preventDefault();
-    alert(`Nome: ${nameState.value} Email: ${emailState.value} Senha: ${passState.value} Mensagem: ${msg.current.value}`);
+    alert(`Nome: ${nameState.value} Sex: ${sex} Email: ${emailState.value} Senha: ${passState.value} Mensagem: ${msg.current.value}`);
   }
 
   return (
-    <div className='App'>
+    <div className={styles.App}>
       <h3>Preencha o formulário abaixo</h3>
       <form action="" method="post" onSubmit={handleSubmit}>
         <div className='mb-3'>
