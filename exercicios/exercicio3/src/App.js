@@ -31,6 +31,11 @@ const App = props => {
       setStatusMin(false)
       setStatusMax(true)
     }
+
+    if (number >= 1 && number <= 9) {
+      setStatusMin(false)
+      setStatusMax(false)
+    }
   }, [number]);
 
   return (
