@@ -160,7 +160,7 @@ function App() {
       <h3>Preencha o formulário abaixo</h3>
       <form action="" method="post" onSubmit={handleSubmit}>
         <div className='mb-3'>
-          <DataLabel.Provider value={{htmlFor:"name", txt: "Nome Completo: ", className: "form-label"}}>
+          <DataLabel.Provider value={{htmlFor:"fullName", txt: "Nome Completo:", className: "form-label"}}>
             <Label/>
           </DataLabel.Provider>
           <Input type="text" name="fullName" id="fullName" className="form-control" value={nameState.value} change={handleName} blur={validateName} />
@@ -174,7 +174,7 @@ function App() {
           </DataLabel.Provider>
         </div>
         <div className='mb-3'>
-          <DataLabel.Provider value={{htmlFor:"email", txt: "Email: ", className: "form-label"}}>
+          <DataLabel.Provider value={{htmlFor:"email", txt: "Email:", className: "form-label"}}>
             <Label />
           </DataLabel.Provider>
           <Input type="email" name="email" id="email" className="form-control" value={emailState.value} change={handleEmail} blur={validateEmail} />
