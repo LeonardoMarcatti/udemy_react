@@ -155,6 +155,14 @@ function App() {
     alert(`Nome: ${nameState.value} Sex: ${sex} Email: ${emailState.value} Senha: ${passState.value} Mensagem: ${msg.current.value}`);
   }
 
+  const clearFields = () => {
+    dispatchName({type: 'user_input', val: ''});
+    dispatchEmail({type: 'user_input', val: ''});
+    dispatchPass({type: 'user_input', val: ''});
+    dispatchPass2({type: 'user_input', val: ''});
+    setSex(null);
+  }
+
   return (
     <div className={styles.App}>
       <h3>Preencha o formulário abaixo</h3>
@@ -199,6 +207,7 @@ function App() {
         </div>
         <div className='mb-3'>
           <Button type="submit" txt="Cadastrar" id="submit" className="btn btn-success" status={!isValid}/>
+          <Button type="reset" txt="Limpar" id="clear" className="btn btn-danger" onClick={clearFields}/>
         </div>
       </form>
     </div>

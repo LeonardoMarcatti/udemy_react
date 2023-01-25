@@ -4,7 +4,9 @@ import AuthContext from '../../context/auth';
 
 const Navigation = () => {
   const ctx = useContext(AuthContext);
+  {
     return (
+    ctx.isLoggedIn && 
       <nav className={classes.nav}>
         <ul>
           {ctx.isLoggedIn && (
@@ -22,7 +24,8 @@ const Navigation = () => {
           )}
         </ul>
       </nav>
-    );
+    )
+  }
 };
 
 export default Navigation;
