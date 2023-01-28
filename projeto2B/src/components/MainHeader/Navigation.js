@@ -1,6 +1,7 @@
 import React, {useContext} from 'react';
 import classes from './Navigation.module.css';
 import AuthContext from '../../context/auth';
+import Button from '../UI/Button/Button';
 
 const Navigation = () => {
   const ctx = useContext(AuthContext);
@@ -18,7 +19,7 @@ const Navigation = () => {
               <a href="/">Admin</a>
             </li>
             <li>
-              <button onClick={ctx.onLogout}>Logout</button>
+              <Button type="button" onClick={ctx.onLogout} disabled={false}>Logout</Button>
             </li>
             </>
           )}
