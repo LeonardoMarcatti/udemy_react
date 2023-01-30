@@ -94,7 +94,7 @@ const Login = (props) => {
         />
 
         <Input
-        ref={passwordRef}
+          ref={passwordRef}
           type="password"
           id="password"
           label="Password"

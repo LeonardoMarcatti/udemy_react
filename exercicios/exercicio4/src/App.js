@@ -4,12 +4,13 @@ import Label from './component/Label';
 import Button from './component/Button';
 import Radio from './component/Radio';
 import DataLabel from './context/dataLabel';
+import TextArea from './component/TextArea';
 import styles from './App.module.css';
 
 function App() {
   const [isValid, setValid] = useState(false)
   const [sex, setSex] = useState(null)
-  const msg = useRef('');
+  const msg = useRef();
 
   const nameReducer = (state, action) => {
     const {type, val} = action;
@@ -203,7 +204,7 @@ function App() {
           <DataLabel.Provider value={{htmlFor:"message", txt: "Mensagem:", className: "form-label"}}>
             <Label />
           </DataLabel.Provider>
-          <textarea className='form-control' ref={msg}></textarea>
+          <TextArea ref={msg}/>
         </div>
         <div className='mb-3'>
           <Button type="submit" txt="Cadastrar" id="submit" className="btn btn-success" status={!isValid}/>
