@@ -1,9 +1,13 @@
-import React from "react";
+import React, {useContext} from "react";
 import style from './Button.module.css';
 import CartIcon from "../cart/CartIcon";
+import cardContext from "../../context/cardContext";
 
 const Button = props => {
-  return <button type="button" className={style.button}>
+  const ctx = useContext(cardContext)
+  const number = ctx.itens.reduce((curr, item) => curr + item.amount, 0);
+  
+  return <button type="button" className={style.button} onClick={ctx.onShow}>
     <span className={style.icon}>
       <CartIcon/>
     </span>
@@ -11,7 +15,9 @@ const Button = props => {
       Your Cart
     </span>
     <span className={style.badge}>
-      3
+      {
+        number
+      }
     </span>
   </button>
 }

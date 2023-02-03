@@ -1,25 +1,27 @@
 import React from "react";
+import Modal from "../UI/Modal";
 import style from './Cart.module.css';
 
 const Cart = props => {
+  const {onClick} = props
   const cartItems = <ul className={style['cart-items']}>
     {
-      [{id: 'c1', name: 'Sushi', amount: 2, price: 12.99 }].map(el => <li>{el.name}</li>)
+      [{id: 'c1', name: 'Sushi', amount: 2, price: 12.99 }].map(el => <li key={Math.random()}>{el.name}</li>)
     }
     </ul>;
 
   return (
-    <div>
+    <Modal>
       {cartItems}
       <div className={style.total}>
-        <span>Totel Amount</span>
-        <span>65.32</span>
+        <span>Total</span>
+        <span>$65.32</span>
       </div>
       <div className={style.actions}>
-        <button className={style['button--alt']}>Close</button>
+        <button className={style['button--alt']} onClick={onClick}>Close</button>
         <button className={style.button}>Order</button>
       </div>
-    </div>
+    </Modal>
   )
 }
 
