@@ -1,10 +1,10 @@
-import React from "react";
+import React, {useState} from "react";
 
 const Clock = props => {
-  const {onSetClock, onClock} = props
-  setInterval(() => onSetClock(new Date().toLocaleTimeString()), 1000)
+  const [clock, setClock] = useState(new Date().toLocaleTimeString());
+  setInterval(() => setClock(new Date().toLocaleTimeString()), 1000)
   return (
-    <h2>{onClock}</h2>
+    <h2>{clock}</h2>
   )
 }
 

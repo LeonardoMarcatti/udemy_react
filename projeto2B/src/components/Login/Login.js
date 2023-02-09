@@ -46,7 +46,7 @@ const Login = (props) => {
   const {isValid: emailIsValid} = emailState;
   const {isValid: passwordIsValid} = passwordState;
 
-  useEffect(() =>{
+  useEffect(() => {
     setFormIsValid(emailIsValid && passwordIsValid)
   }, [emailIsValid, passwordIsValid]);
 

@@ -9,7 +9,6 @@ function App() {
   const handleModal = () => setShowModal(prevState => !prevState)
 
   return (
-    <>
     <Provider onHandleModal={handleModal}>
       {
         showModal && <Cart onClick={handleModal}/>
@@ -19,7 +18,6 @@ function App() {
         <Meals/>
       </main>
     </Provider>
-      </>
   );
 }
 

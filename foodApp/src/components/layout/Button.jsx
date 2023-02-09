@@ -5,7 +5,7 @@ import cardContext from "../../context/cardContext";
 
 const Button = props => {
   const ctx = useContext(cardContext)
-  const number = ctx.itens.reduce((curr, item) => curr + item.amount, 0);
+  const number = ctx.items.reduce((curr, item) => curr + item.amount, 0);
   
   return <button type="button" className={style.button} onClick={ctx.onShow}>
     <span className={style.icon}>
