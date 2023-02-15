@@ -8,14 +8,14 @@ const defaultState = {
 
 const cartReducer = (state, action) => {
   if (action.type === 'add') {
-    const updatedTotal = state.total + (action.item.price * action.item.amount)
+    const updatedTotal = state.total + (+action.item.price * +action.item.amount)
     const index = state.items.findIndex(el => el.id === action.item.id)
     const existingItem = state.items[index]
     let updatedItems;
 
     if (existingItem) {
       let updatedItem
-      updatedItem = {...existingItem, amount: existingItem.amount + action.item.amount }
+      updatedItem = {...existingItem, amount: +existingItem.amount + +action.item.amount }
       updatedItems = [...state.items];
       updatedItems[index] = updatedItem
     } else {
@@ -23,6 +23,23 @@ const cartReducer = (state, action) => {
     }
     
     return {items: updatedItems, total: updatedTotal}
+  }
+
+  if (action.type === 'del') {
+      const itemIndex = state.items.findIndex(el => el.id === action.id)
+      const item = state.items[itemIndex]
+      const total = state.total - item.price
+      let updatedItems
+
+      if (item.amount === 1) {
+        updatedItems = state.items.filter(el => el.id !== action.id)
+      } else {
+        const updatedItem = {...item, amount: item.amount - 1}
+        updatedItems = [...state.items]
+        updatedItems[itemIndex] = updatedItem
+      }
+
+      return {items: updatedItems, total}
   }
 
   return defaultState;
@@ -35,8 +52,8 @@ const Provider = props => {
   const addItemHandler = item => {
     dispatchAction({type: 'add', item})
   }
-  const removeItemHandler = item => {
-    dispatchAction({type: 'del', item})
+  const removeItemHandler = id => {
+    dispatchAction({type: 'del', id})
   }
 
   const data = {
