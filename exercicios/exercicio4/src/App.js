@@ -169,10 +169,10 @@ function App() {
       <h3>Preencha o formulário abaixo</h3>
       <form action="" method="post" onSubmit={handleSubmit}>
         <div className='mb-3'>
-          <DataLabel.Provider value={{htmlFor:"fullName", txt: "Nome Completo:", className: "form-label"}}>
-            <Label/>
+          <DataLabel.Provider value={{htmlFor:"fullName", txt: "Nome Completo:", labelClass: "form-label", className: "form-control", type: "text", name:"fullName", id:"fullName"}}>
+          <Input val={nameState.value} change={handleName} blur={validateName} />
           </DataLabel.Provider>
-          <Input type="text" name="fullName" id="fullName" className="form-control" value={nameState.value} change={handleName} blur={validateName} />
+          
         </div>
         <div className='mb-3'>
           <DataLabel.Provider value={{htmlFor: 'masculino', txt: 'Masculino', className: 'form-label'}}>
@@ -183,28 +183,26 @@ function App() {
           </DataLabel.Provider>
         </div>
         <div className='mb-3'>
-          <DataLabel.Provider value={{htmlFor:"email", txt: "Email:", className: "form-label"}}>
-            <Label />
+          <DataLabel.Provider value={{htmlFor:"email", txt: "Email:", labelName: "form-label", type:"email", name:"email", id:"email", className:"form-control", val:emailState.value}}>
+            <Input  change={handleEmail} blur={validateEmail} />
           </DataLabel.Provider>
-          <Input type="email" name="email" id="email" className="form-control" value={emailState.value} change={handleEmail} blur={validateEmail} />
+          
         </div>
         <div className='mb-3'>
-          <DataLabel.Provider value={{htmlFor:"password", txt: "Senha:", className: "form-label"}}>
-            <Label />
+          <DataLabel.Provider value={{htmlFor:"password", txt: "Senha:", labelName: "form-label", type: "password", name:"password", id:"password", className:"form-control", val: passState.value}}>
+            <Input  change={handlePass} blur={validatePass} />
           </DataLabel.Provider>  
-          <Input type="password" name="password" id="password" className="form-control" value={passState.value} change={handlePass} blur={validatePass} />
         </div>
         <div className='mb-3'>
-          <DataLabel.Provider value={{htmlFor:"password2", txt: "Repita senha:", className: "form-label"}}>
-            <Label />
+          <DataLabel.Provider value={{htmlFor:"password2", txt: "Repita senha:", labelName: "form-label", type:"password", name:"password2", id:"password2", className: "form-control", val: passState2.value}}>
+            <Input  change={handlePass2} blur={validatePass2}/>
           </DataLabel.Provider> 
-          <Input type="password" name="password2" id="password2" className="form-control" value={passState2.value} change={handlePass2} blur={validatePass2}/>
         </div>
         <div className='mb-3'>
           <DataLabel.Provider value={{htmlFor:"message", txt: "Mensagem:", className: "form-label"}}>
             <Label />
+            <TextArea ref={msg}/>
           </DataLabel.Provider>
-          <TextArea ref={msg}/>
         </div>
         <div className='mb-3'>
           <Button type="submit" txt="Cadastrar" id="submit" className="btn btn-success" status={!isValid}/>

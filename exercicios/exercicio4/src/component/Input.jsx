@@ -1,18 +1,32 @@
-import React from "react";
+import React, {useContext} from "react";
+import Label from "./Label";
+import DataLabel from "../context/dataLabel";
 
 const Input = props => {
-  const {type, name, id, className, value, blur, change} = props;
+  const ctx = useContext(DataLabel)
+  const {change, blur} = props
   return (
-    <input
-      type={type}
-      id={id}
-      name={name}
-      className={className}
-      value={value}
-      onChange={change}
-      onBlur={blur}
-    />
+    <>
+      <Label />
+      <input
+        type={ctx.type}
+        id={ctx.id}
+        name={ctx.name}
+        className={ctx.className}
+        val={ctx.value}
+        onChange={change}
+        onBlur={blur}
+      />
+    </>
   )
 }
 
 export default Input;
+
+// htmlFor: '',
+//   labelClass: '',
+//   className: '',
+//   txt: '',
+//   type: '',
+//   name: '',
+//   id: ''

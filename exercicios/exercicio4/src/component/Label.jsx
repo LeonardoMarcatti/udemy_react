@@ -6,7 +6,7 @@ const Label = props => {
   return (
     <label
       htmlFor={ctx.htmlFor}
-      className={ctx.className}
+      className={ctx.labelClass}
     >
       {ctx.txt}
     </label>

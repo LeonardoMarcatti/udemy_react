@@ -2,8 +2,12 @@ import React from "react";
 
 const DataLabel = React.createContext({
   htmlFor: '',
+  labelClass: '',
   className: '',
-  txt: ''
+  txt: '',
+  type: '',
+  name: '',
+  id: ''
 });
 
 export default DataLabel;
