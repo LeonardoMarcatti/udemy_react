@@ -1,6 +1,5 @@
 import React, {useState, useEffect, useReducer, useRef} from 'react';
 import Input from './component/Input';
-import Label from './component/Label';
 import Button from './component/Button';
 import Radio from './component/Radio';
 import DataLabel from './context/dataLabel';
@@ -171,8 +170,7 @@ function App() {
         <div className='mb-3'>
           <DataLabel.Provider value={{htmlFor:"fullName", txt: "Nome Completo:", labelClass: "form-label", className: "form-control", type: "text", name:"fullName", id:"fullName"}}>
           <Input val={nameState.value} change={handleName} blur={validateName} />
-          </DataLabel.Provider>
-          
+          </DataLabel.Provider> 
         </div>
         <div className='mb-3'>
           <DataLabel.Provider value={{htmlFor: 'masculino', txt: 'Masculino', className: 'form-label'}}>
@@ -186,7 +184,6 @@ function App() {
           <DataLabel.Provider value={{htmlFor:"email", txt: "Email:", labelName: "form-label", type:"email", name:"email", id:"email", className:"form-control", val:emailState.value}}>
             <Input  change={handleEmail} blur={validateEmail} />
           </DataLabel.Provider>
-          
         </div>
         <div className='mb-3'>
           <DataLabel.Provider value={{htmlFor:"password", txt: "Senha:", labelName: "form-label", type: "password", name:"password", id:"password", className:"form-control", val: passState.value}}>
@@ -200,7 +197,6 @@ function App() {
         </div>
         <div className='mb-3'>
           <DataLabel.Provider value={{htmlFor:"message", txt: "Mensagem:", className: "form-label"}}>
-            <Label />
             <TextArea ref={msg}/>
           </DataLabel.Provider>
         </div>

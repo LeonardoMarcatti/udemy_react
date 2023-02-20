@@ -1,8 +1,12 @@
 import React from "react";
+import Label from "./Label";
 
 const TextArea = React.forwardRef((props, ref) => {
   return (
-    <textarea className='form-control' ref={ref}></textarea>
+    <>
+      <Label />
+      <textarea className='form-control' ref={ref}></textarea>
+    </>
   )
 });
 
