@@ -5,6 +5,7 @@ import DataLabel from "../context/dataLabel";
 const Input = props => {
   const ctx = useContext(DataLabel)
   const {change, blur} = props
+  console.log('input');
   return (
     <>
       <Label />

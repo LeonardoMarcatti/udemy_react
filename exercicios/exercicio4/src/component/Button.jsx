@@ -3,6 +3,7 @@ import styles from './button.module.css';
 
 const Button = props => {
   const {type, txt, className, status, id, onClick} = props;
+  console.log('button');
   return (
     <button
       type={type}
@@ -16,4 +17,4 @@ const Button = props => {
   )
 }
 
-export default Button;
+export default React.memo(Button);

@@ -1,4 +1,4 @@
-import React, {useState, useEffect, useReducer, useRef} from 'react';
+import React, {useState, useEffect, useReducer, useRef, useCallback} from 'react';
 import Input from './component/Input';
 import Button from './component/Button';
 import Radio from './component/Radio';
@@ -155,13 +155,13 @@ function App() {
     alert(`Nome: ${nameState.value} Sex: ${sex} Email: ${emailState.value} Senha: ${passState.value} Mensagem: ${msg.current.value}`);
   }
 
-  const clearFields = () => {
+  const clearFields = useCallback(() => {
     dispatchName({type: 'user_input', val: ''});
     dispatchEmail({type: 'user_input', val: ''});
     dispatchPass({type: 'user_input', val: ''});
     dispatchPass2({type: 'user_input', val: ''});
     setSex(null);
-  }
+  }, [])
 
   return (
     <div className={styles.App}>
@@ -170,7 +170,7 @@ function App() {
         <div className='mb-3'>
           <DataLabel.Provider value={{htmlFor:"fullName", txt: "Nome Completo:", labelClass: "form-label", className: "form-control", type: "text", name:"fullName", id:"fullName"}}>
           <Input val={nameState.value} change={handleName} blur={validateName} />
-          </DataLabel.Provider> 
+          </DataLabel.Provider>
         </div>
         <div className='mb-3'>
           <DataLabel.Provider value={{htmlFor: 'masculino', txt: 'Masculino', className: 'form-label'}}>
