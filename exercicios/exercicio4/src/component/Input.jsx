@@ -23,11 +23,3 @@ const Input = props => {
 }
 
 export default Input;
-
-// htmlFor: '',
-//   labelClass: '',
-//   className: '',
-//   txt: '',
-//   type: '',
-//   name: '',
-//   id: ''
