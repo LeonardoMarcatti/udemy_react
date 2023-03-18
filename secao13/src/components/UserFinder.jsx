@@ -3,6 +3,7 @@ import Users from './Users';
 import classes from './UserFinder.module.css';
 import Test from './Test';
 import UsersContext from '../context/userscContext';
+import ErrorBoundary from './ErrorBoundary';
 
 class UserFinder extends Component {
   static contextType = UsersContext
@@ -11,7 +12,6 @@ class UserFinder extends Component {
     filteredUsers: [],
     searchTerm: ''
   }
-
 
   searchChangeHandler = (e) => this.setState({searchTerm: e.target.value})
 
@@ -31,12 +31,14 @@ class UserFinder extends Component {
     return (
       <>
         <div className={classes.finder}>
-        <Test label="Show/Hide Label"/>
+          <Test label="Show/Hide Label"/>
           <input type='search' onChange={this.searchChangeHandler} id="find"/>
         </div>
-        <div className={classes.finder}>
-          <Users users={this.state.filteredUsers} />
-        </div>
+        <ErrorBoundary>
+          <div className={classes.finder}>
+            <Users users={this.state.filteredUsers} />
+          </div>
+        </ErrorBoundary>
       </>
       
     )
