@@ -5,7 +5,7 @@ const Paragraph = props => {
   console.log('Paragraph');
   return(
   <>
-      {show ? <p>New paragraph component</p> : ''}
+      {show ? <p>New paragraph component</p> : null}
   </>
   )
 }

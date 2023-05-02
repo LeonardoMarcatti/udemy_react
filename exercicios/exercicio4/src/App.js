@@ -33,7 +33,7 @@ function App() {
     dispatchName({type: 'user_input', val: value});
   }
 
-  const validateName = e => {
+  const validateName = () => {
     dispatchName({type: 'input_blur'});
   }
 
@@ -65,7 +65,7 @@ function App() {
     dispatchEmail({type: 'user_input', val: value});
   }
 
-  const validateEmail = e => {
+  const validateEmail = () => {
     dispatchEmail({type: 'input_blur'});
   }
 
@@ -99,7 +99,7 @@ function App() {
     dispatchPass({type: 'user_input', val: value});
   }
 
-  const validatePass = e => {
+  const validatePass = () => {
     dispatchPass({type: 'input_blur'});
   }
 
@@ -133,7 +133,7 @@ function App() {
     dispatchPass2({type: 'user_input', val: value});
   }
 
-  const validatePass2 = e => {
+  const validatePass2 = () => {
     dispatchPass2({type: 'input_blur'});
   }
 
@@ -169,7 +169,7 @@ function App() {
       <form action="" method="post" onSubmit={handleSubmit}>
         <div className='mb-3'>
           <DataLabel.Provider value={{htmlFor:"fullName", txt: "Nome Completo:", labelClass: "form-label", className: "form-control", type: "text", name:"fullName", id:"fullName"}}>
-          <Input val={nameState.value} change={handleName} blur={validateName} />
+            <Input val={nameState.value} change={handleName} blur={validateName} />
           </DataLabel.Provider>
         </div>
         <div className='mb-3'>
@@ -181,18 +181,18 @@ function App() {
           </DataLabel.Provider>
         </div>
         <div className='mb-3'>
-          <DataLabel.Provider value={{htmlFor:"email", txt: "Email:", labelName: "form-label", type:"email", name:"email", id:"email", className:"form-control", val:emailState.value}}>
-            <Input  change={handleEmail} blur={validateEmail} />
+          <DataLabel.Provider value={{htmlFor:"email", txt: "Email:", labelName: "form-label", type:"email", name:"email", id:"email", className:"form-control"}}>
+            <Input val={emailState.value} change={handleEmail} blur={validateEmail} />
           </DataLabel.Provider>
         </div>
         <div className='mb-3'>
           <DataLabel.Provider value={{htmlFor:"password", txt: "Senha:", labelName: "form-label", type: "password", name:"password", id:"password", className:"form-control", val: passState.value}}>
-            <Input  change={handlePass} blur={validatePass} />
+            <Input val={passReducer.value} change={handlePass} blur={validatePass} />
           </DataLabel.Provider>  
         </div>
         <div className='mb-3'>
           <DataLabel.Provider value={{htmlFor:"password2", txt: "Repita senha:", labelName: "form-label", type:"password", name:"password2", id:"password2", className: "form-control", val: passState2.value}}>
-            <Input  change={handlePass2} blur={validatePass2}/>
+            <Input  val={passReducer2.value} change={handlePass2} blur={validatePass2}/>
           </DataLabel.Provider> 
         </div>
         <div className='mb-3'>

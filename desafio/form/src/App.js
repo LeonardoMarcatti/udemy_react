@@ -17,7 +17,7 @@ import { useState, useEffect } from 'react';
 export default function LoginForm() {
   const [emailState, setEmailState] = useState('');
   const [passwordState, setPasswordState] = useState('');
-  const [isValid, setIsValid] = useState(true);
+  const [isValid, setIsValid] = useState(false);
   const [error, setError] = useState(null);
 
   const handleState = e => {
@@ -33,7 +33,7 @@ export default function LoginForm() {
   const passwordIsValid = passwordState;
 
   useEffect(() => {
-    setIsValid(emailIsValid && passwordIsValid.trim().length >= 6)
+    setIsValid(emailIsValid.includes('@') && emailIsValid.includes('.com') && passwordIsValid.trim().length >= 6)
   }, [emailIsValid, passwordIsValid]);
 
   const submitForm = () => {
@@ -57,12 +57,12 @@ export default function LoginForm() {
           error && <div className='errorMessage'>{error}</div>
         }
         <div className='row'>
-          <label htmlFor={'email'}>Email</label>
-          <input id={'email'} type={'email'} name="email" autoComplete='off' value={emailState} onChange={handleState}/>
+          <label htmlFor="email">Email</label>
+          <input id="email" type="email" name="email" autoComplete='off' value={emailState} onChange={handleState}/>
         </div>
         <div className='row'>
-          <label htmlFor={'password'}>Password</label>
-          <input id={'password'} type={'password'} name="password" value={passwordState} onChange={handleState}/>
+          <label htmlFor="password">Password</label>
+          <input id="password" type="password" name="password" value={passwordState} onChange={handleState}/>
         </div>
 
         <div className='button'>

@@ -1,6 +1,7 @@
 import React from "react";
 
 const Total = props => {
+  console.log('Total');
   const {value, className} = props;
   return (
     <div className={className}>
@@ -9,4 +10,4 @@ const Total = props => {
   );
 };
 
-export default Total;
+export default React.memo(Total);

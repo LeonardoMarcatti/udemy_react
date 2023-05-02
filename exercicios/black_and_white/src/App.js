@@ -4,7 +4,6 @@ import Button from './components/Button';
 
 function App() {
   const [mode, setMode] = useState(true);
-
   const handleMode = useCallback(() => setMode(prevState => !prevState), [])
 
   return (

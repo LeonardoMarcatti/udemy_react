@@ -3,7 +3,6 @@ import styles from './button.module.css';
 
 const Button = props => {
   const {type, txt, className, status, id, onClick} = props;
-  console.log('button');
   return (
     <button
       type={type}

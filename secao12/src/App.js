@@ -6,14 +6,14 @@ import './App.css';
 function App() {
   const [showP, setShowP] = useState(false)
 
-  const handleClick = useCallback(() => setShowP(prevState => !prevState), [])
+  const handleClick = useCallback (() => setShowP(prevState => !prevState),[])
   console.log('App');
 
   return (
     <div className="app">
-      <h1>Hi there!</h1>
-      <Paragraph show={showP} />
+      <h1>Hi there!</h1>      
       <Button onClick={handleClick}>Toggle Paragraph</Button>
+      <Paragraph show={showP} />
     </div>
   );
 }

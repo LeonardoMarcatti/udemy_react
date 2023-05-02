@@ -3,9 +3,9 @@ import Label from "./Label";
 import DataLabel from "../context/dataLabel";
 
 const Input = props => {
-  const ctx = useContext(DataLabel)
-  const {change, blur} = props
   console.log('input');
+  const ctx = useContext(DataLabel)
+  const {change, blur, val} = props
   return (
     <>
       <Label />
@@ -14,7 +14,7 @@ const Input = props => {
         id={ctx.id}
         name={ctx.name}
         className={ctx.className}
-        val={ctx.value}
+        value={val}
         onChange={change}
         onBlur={blur}
       />
@@ -22,4 +22,4 @@ const Input = props => {
   )
 }
 
-export default Input;
+export default React.memo(Input);

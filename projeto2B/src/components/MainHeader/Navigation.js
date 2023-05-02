@@ -5,7 +5,6 @@ import Button from '../UI/Button/Button';
 
 const Navigation = () => {
   const ctx = useContext(AuthContext);
-  {
     return (
     ctx.isLoggedIn && 
       <nav className={classes.nav}>
@@ -26,7 +25,6 @@ const Navigation = () => {
         </ul>
       </nav>
     )
-  }
 };
 
 export default Navigation;

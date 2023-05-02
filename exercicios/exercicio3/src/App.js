@@ -1,25 +1,29 @@
-import React, {useState, useEffect} from 'react';
+import React, {useState, useEffect, useCallback} from 'react';
 import Button from './components/Button';
 import Total from './components/Total';
 import styles from './App.module.css';
 
 const App = props => {
+  console.log('App');
   const [number, setNumber] = useState(0);
   const [statusMin, setStatusMin] = useState(true);
   const [statusMax, setStatusMax] = useState(false);
   const [isHuman, setHuman] = useState(false);
 
-  const handleClick = e => {
-    const {innerText} = e.target;
+  const handleClick = useCallback(
+    e => {
+      const {innerText} = e.target;
+  
+      if (innerText === '-') {
+        setNumber((prevState) => Number(prevState) - 1 )
+      } else {
+        setNumber((prevState) => Number(prevState) + 1 )
+      }
+    }, []
+  )
 
-    if (innerText === '-') {
-      setNumber((prevState) => Number(prevState) - 1 )
-    } else {
-      setNumber((prevState) => Number(prevState) + 1 )
-    }
-  }
+  const handleCheck = useCallback(() => setHuman((prevState) => !prevState), [])
 
-  const handleCheck = () => setHuman((prevState) => !prevState);
 
   useEffect(() => {
     if (number === 0) {
@@ -62,4 +66,4 @@ const App = props => {
   )
 }
 
-export default App;
+export default React.memo(App);
