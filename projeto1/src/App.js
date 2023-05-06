@@ -22,7 +22,7 @@ function App() {
   const addUserHandler = (userName, age, id) => {
     saveInSessionStorage(userName, age, id);
     const list = getSessionStorage();
-    list && setUsersList(list);
+    setUsersList(list);
   };
 
   useEffect(() => {

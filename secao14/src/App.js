@@ -6,6 +6,7 @@ import './App.css';
 function App() {
   const [movies, setMovies] = useState([])
   const [loading, setLoading] = useState(false)
+  const [errors, setErrors] = useState(null)
 
 
   // const fetchMoviesHandler = () => {
@@ -23,13 +24,22 @@ function App() {
   const fetchMoviesHandler = async () => {
     setMovies([]);
     setLoading(true)
-    const data = await fetch('https://swapi.dev/api/films/')
-    const json = await data.json();
-    const objMovies = json.results.map(el => {
-            return {id: el.episode_id, title: el.title, openingText: el.opening_crawl, releaseDate: el.release_date}
-          })
-          setMovies(objMovies)
-          setLoading(false)
+    try {
+      const data = await fetch('https://swapi.dev/api/films/')
+
+      if (!data.ok) {
+       throw new Error('Error trying to get data!')
+      }
+      const json = await data.json();
+      const objMovies = json.results.map(el => {
+        return {id: el.episode_id, title: el.title, openingText: el.opening_crawl, releaseDate: el.release_date}
+      })
+      setMovies(objMovies)
+      setLoading(false)
+    } catch (error) {
+      setErrors(error.message);
+    }
+    
   }
 
   return (
@@ -44,6 +54,9 @@ function App() {
         (movies.length !== 0 && !loading) && <section> {
           (!loading)? <MoviesList movies={movies} /> : <h1>Loading!</h1> 
         }</section>
+      }
+      {
+        errors && <section><h3>{errors}</h3></section>
       }
     </>
   );
