@@ -9,7 +9,7 @@ import styles from './App.module.css';
 function App() {
   const [isValid, setValid] = useState(false)
   const [sex, setSex] = useState(null)
-  const msg = useRef();
+  const msg = useRef('');
 
   const nameReducer = (state, action) => {
     const {type, val} = action;
