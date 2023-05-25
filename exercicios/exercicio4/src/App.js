@@ -23,10 +23,10 @@ function App() {
       return {value: state.value, valid: validName};
     }
 
-    return {value: state, isValid: false};
+    return {value: state, valid: false};
   }
 
-  const [nameState, dispatchName] = useReducer(nameReducer, {value: '', isValid: null});
+  const [nameState, dispatchName] = useReducer(nameReducer, {value: '', valid: null});
 
   const handleName = e => {
     const{value} = e.target;
