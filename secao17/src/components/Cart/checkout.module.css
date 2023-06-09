@@ -1,0 +1,122 @@
+.form {
+  margin: 1rem 0;
+  height: 17rem;
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+
+.control {
+  margin-bottom: 0.5rem;
+}
+
+.control label {
+  font-weight: bold;
+  margin-bottom: 0.25rem;
+  display: block;
+}
+
+.control input, .control select {
+  font: inherit;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  width: 20rem;
+  max-width: 100%;
+  display: block;
+}
+
+.actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 1rem;
+}
+
+.actions .submit {
+  border: 1px solid #5a1a01;
+  background-color: #5a1a01;
+  color: white;
+}
+
+.actions .submit:hover,
+.actions .submit:active {
+  background-color: #7a2706;
+}
+
+.invalid label {
+  color: #ca3e51;
+}
+
+.invalid input {
+  border-color: #aa0b20;
+  background-color: #ffeff1;
+}
+
+.btn {
+  margin-right: 15px;
+}
+
+.btn_order {
+  font: inherit;
+  cursor: pointer;
+  background-color: #8a2b06;
+  border: 1px solid #8a2b06;
+  color: white;
+  padding: 0.25rem 2rem;
+  border-radius: 20px;
+  font-weight: bold;
+}
+
+.disabled {
+  font: inherit;
+  cursor: not-allowed; 
+  background-color: gray;
+  border: 1px solid darkgray;
+  color: white;
+  padding: 0.25rem 2rem;
+  border-radius: 20px;
+  font-weight: bold;
+}
+
+.btn_order:hover {
+  font: inherit;
+  cursor: pointer;
+  background-color: #5a1e07;
+  border: 1px solid #5a1e07;
+  color: white;
+  padding: 0.25rem 2rem;
+  border-radius: 20px;
+  font-weight: bold;
+}
+
+.btn_cancel {
+  font: inherit;
+  cursor: pointer;
+  background-color: white;
+  border: 1px solid gray;
+  color: #8a2b06;
+  padding: 0.25rem 2rem;
+  border-radius: 20px;
+  font-weight: bold;
+}
+
+.btn_cancel:hover {
+  font: inherit;
+  cursor: pointer;
+  background-color: rgb(199, 181, 181);
+  border: 1px solid rgb(199, 181, 181);
+  color: #8a2b06;
+  padding: 0.25rem 2rem;
+  border-radius: 20px;
+  font-weight: bold;
+}
+
+.sex {
+  display: flex;
+  flex-flow: row nowrap;
+  align-items: center;
+  justify-content: flex-start
+}
+
+.sex > div {
+  margin-right: 15px;
+  margin-left: 0;
+}

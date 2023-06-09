@@ -2,7 +2,7 @@ import { useReducer, useEffect, useState } from "react";
 
 const useForm = () => {
   const [validForm, setValidForm] = useState(false)
-  const [error, setError] = useState({name: false, surName: false, email: false})
+  const [error, setError] = useState({nameError: false, surNameError: false, emailError: false})
 
   const nameReducer = (state, action) => {
     const {type, value} = action
@@ -11,11 +11,11 @@ const useForm = () => {
     }
 
     if (type === 'focus') {
-      setError({...error, name: false})
+      setError({...error, nameError: false})
     }
 
     if (type === 'blur') {
-      setError({...error, name: state.value.trim() === ''})
+      setError({...error, nameError: value.trim() === ''})
     }
 
     return {value: state.value, isValid: state.value.trim() !== ''}
@@ -28,7 +28,7 @@ const useForm = () => {
     dispatchName({type: 'change', value})
   }
 
-  const blurName = () => dispatchName({type: 'blur'})
+  const blurName = p => dispatchName({type: 'blur', value: p.target.value})
 
   const focusName = () => dispatchName({type: 'focus'})
 
@@ -40,11 +40,11 @@ const useForm = () => {
     }
 
     if (type ==='focus') {
-      setError({...error, surName: false})
+      setError({...error, surNameError: false})
     }
 
     if (type === 'blur') {
-      setError({...error, surName: state.value.trim() === ''})
+      setError({...error, surNameError: state.value.trim() === ''})
     }
 
     return {value: state.value, isValid: state.value.trim() !== ''}
@@ -71,11 +71,11 @@ const useForm = () => {
     }
 
     if (type === 'blur') {
-      setError({...error, email: !checkEmail(state.value)})
+      setError({...error, emailError: !checkEmail(state.value)})
     }
 
     if (type === 'focus') {
-      setError({...error, email: false})
+      setError({...error, emailError: false})
     }
 
     return {value: state.value, isValid: checkEmail(state.value)}
@@ -101,7 +101,7 @@ const useForm = () => {
     alert(
       `
         Nome: ${nameState.value} ${surNameState.value}
-        Email: ${emailState.value}
+        emailError: ${emailState.value}
       `
     )
   }
