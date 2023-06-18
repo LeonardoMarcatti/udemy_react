@@ -1,7 +1,11 @@
+import React, {useState} from 'react';
 import keyConceptsImage from './assets/images/key-concepts.png';
 import componentsImage from './assets/images/components.png';
 import stateImage from './assets/images/state.png';
 import eventsImage from './assets/images/events.png';
+import Header from './components/Header';
+import Concepts from './components/Concepts';
+import Box from './components/Box';
 
 const concepts = [
   {
@@ -25,20 +29,21 @@ const concepts = [
 ];
 
 function App() {
+  const [items, setItems] = useState(concepts)
+
+  const removeItem = p => {
+    const id = p.target.parentNode.id
+    const removedElement = concepts.splice(id, 1);
+    setItems(concepts.filter(el => el !== removedElement));
+  }
   return (
     <div>
-      <header>
-        <img src={keyConceptsImage} alt="Medal badge with a star" />
-        <h1>Key React Concepts</h1>
-        <p>Selected key React concepts you should know about</p>
-      </header>
-      <ul id="concepts">
-        <li className="concept">
-          <img src="TODO: IMAGE" alt="TODO: TITLE" />
-          <h2>TODO: TITLE</h2>
-          <p>TODO: DESCRIPTION</p>
-        </li>
-      </ul>
+      <Header src={keyConceptsImage}/>
+      <Concepts id="concepts">
+        {
+          items.map((el, i) => <Box data={el} className="concept" key={i} id={i} onClick={removeItem}/>)
+        }
+      </ Concepts>
     </div>
   );
 }

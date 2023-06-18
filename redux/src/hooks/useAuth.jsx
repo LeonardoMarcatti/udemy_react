@@ -1,5 +1,5 @@
 import { useSelector, useDispatch} from "react-redux";
-import {counterActions} from '../store/store'
+import {authActions} from '../store/store'
 
 // const useCounter = () => {
 //   const dispatch = useDispatch()
@@ -14,17 +14,12 @@ import {counterActions} from '../store/store'
 //   return {counter, increase, decrease, show, toggleShow, add, del}
 // }
 
-const useCounter = () => {
+const useAuth = () => {
   const dispatch = useDispatch()
-  const counter = useSelector(state => state.count.value)
-  const show = useSelector(state => state.count.show)
-  const increase = () => dispatch(counterActions.increase())
-  const decrease = () => dispatch(counterActions.decrease())
-  const add = p => dispatch(counterActions.add(p))
-  const del = p => dispatch(counterActions.del(p))
-  const toggleShow = () => dispatch(counterActions.toggleShow())
+  const auth = useSelector(state => state.auth.isLogged)
+  const toggleLog = () => dispatch(authActions.toggleLog())
 
-  return {counter, increase, decrease, show, toggleShow, add, del}
+  return {auth, toggleLog}
 }
 
-export default useCounter
+export default useAuth

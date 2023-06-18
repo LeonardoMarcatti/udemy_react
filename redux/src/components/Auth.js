@@ -1,6 +1,8 @@
 import classes from './Auth.module.css';
+import useAuth from '../hooks/useAuth';
 
 const Auth = () => {
+  const {toggleLog} = useAuth()
   return (
     <main className={classes.auth}>
       <section>
@@ -13,7 +15,7 @@ const Auth = () => {
             <label htmlFor='password'>Password</label>
             <input type='password' id='password' />
           </div>
-          <button>Login</button>
+          <button type="button" onClick={toggleLog}>Login</button>
         </form>
       </section>
     </main>

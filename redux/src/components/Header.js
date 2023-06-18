@@ -1,11 +1,14 @@
 import classes from './Header.module.css';
+import useAuth from '../hooks/useAuth';
 
 const Header = () => {
+  const {auth, toggleLog} = useAuth()
   return (
     <header className={classes.header}>
       <h1>Redux Auth</h1>
       <nav>
-        <ul>
+        {
+          auth && <ul>
           <li>
             <a href='/'>My Products</a>
           </li>
@@ -13,9 +16,11 @@ const Header = () => {
             <a href='/'>My Sales</a>
           </li>
           <li>
-            <button>Logout</button>
+            <button type="button" onClick={toggleLog}>Logout</button>
           </li>
         </ul>
+        }
+        
       </nav>
     </header>
   );
