@@ -1,6 +1,6 @@
 import React, {useState, useCallback} from 'react';
 import styles from './App.module.css';
-import Button from './components/Button';
+import Button from './components/Button.tsx';
 
 function App() {
   console.log('App')
