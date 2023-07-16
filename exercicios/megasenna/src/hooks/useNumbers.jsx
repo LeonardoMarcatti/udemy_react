@@ -7,9 +7,9 @@ const useNumber = () => {
     const sortNumber = () => Math.floor(Math.random() * (60-1) + 1)
     const checkNumber = (val) => {
       if (allNumbers.indexOf(val) !== -1) {
-        return false
+        return true
       }
-      return true
+      return false
     }
 
     const order = (a,b) => {
@@ -17,10 +17,11 @@ const useNumber = () => {
     }
 
     for (let i = 0; i < 6; i++) {
-      const sortedNumber = sortNumber()
+      let sortedNumber = sortNumber()
       while (checkNumber(sortedNumber)) {
-        allNumbers.push(sortedNumber)
+        sortedNumber = sortNumber()
       }
+      allNumbers.push(sortedNumber)
     }
     setNumbers(allNumbers.sort(order));
 
