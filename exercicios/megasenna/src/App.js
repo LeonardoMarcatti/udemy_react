@@ -4,6 +4,7 @@ import Button from './components/Button';
 import Numbers from './components/Numbers';
 
 function App() {
+  console.log('App');
   const {numbers, addNumber} = useNumber();
 
   return (

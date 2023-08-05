@@ -29,7 +29,8 @@ const storeReducer = (state = {value: 0, show: true}, action) => {
 const counterSlice = createSlice({
   name: 'counter',
   initialState: {value: 0, show: true},
-  reducers: {increase(state){state.value++}, 
+  reducers: {
+    increase(state){state.value++}, 
     decrease(state){state.value--},
     toggleShow(state){state.show = !state.show},
     add(state, action){state.value += action.payload},

@@ -1,9 +1,9 @@
 import React, {useState, useEffect, useReducer, useRef, useCallback} from 'react';
-import Input from './component/Input';
-import Button from './component/Button';
-import Radio from './component/Radio';
+import Input from '../src/component/Input';
+import Button from '../src/component/Button';
+import Radio from '../src/component/Radio';
 import DataLabel from './context/dataLabel';
-import TextArea from './component/TextArea';
+import TextArea from '../src/component/TextArea';
 import styles from './App.module.css';
 
 function App() {

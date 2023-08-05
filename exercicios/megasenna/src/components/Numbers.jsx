@@ -1,6 +1,7 @@
 import React from "react";
 
 const Numbers = props => {
+  console.log('Numbers');
   const {numbers} = props;
   return (
     <>

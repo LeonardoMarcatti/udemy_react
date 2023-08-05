@@ -4,7 +4,7 @@ const useNumber = () => {
   const [numbers, setNumbers] = useState([]);
   const addNumber = useCallback(() => {
     const allNumbers = []
-    const sortNumber = () => Math.floor(Math.random() * (60-1) + 1)
+    const sortNumber = () => Math.floor(Math.random() * 59 + 1)
     const checkNumber = (val) => {
       if (allNumbers.indexOf(val) !== -1) {
         return true
