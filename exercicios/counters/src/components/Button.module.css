@@ -1,0 +1,36 @@
+*{
+  margin: 5px;
+}
+
+.button {
+  padding: 5px 25px;
+  box-shadow: 0 0 10px black;
+  border: 2px solid black;
+  border-radius: 5px; 
+  margin: 10px 3px 0 0;
+  font-weight: bold;
+  color: white;
+}
+
+.button:hover{
+  color: black;
+  transition: all 0.25s;
+  border-radius: 15px;
+}
+
+.plus {
+  background-color: rgba(28, 12, 150, 1);
+}
+
+.plus:hover {
+  background-color: rgb(0, 34, 230);
+}
+
+
+.minus {
+  background-color: rgba(150, 12, 28, 1);
+}
+
+.minus:hover {
+  background-color: rgb(255, 20, 63);
+}
