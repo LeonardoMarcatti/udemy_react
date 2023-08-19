@@ -1,5 +1,8 @@
 .li {
-  color: red;
   font-size: 25px;
   list-style: decimal;
+}
+
+.liRed{
+  color: red;
 }

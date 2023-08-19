@@ -1,14 +1,15 @@
-
+import React from "react"
+import styles from './TodoItem.module.css'
 interface Todo {
-  key: number,
-  className: string,
   children: string
 }
 
+
 const TodoItem = (props: Todo) => {
-  const {key, children, className} = props
+  const {children} = props
+  
   return (
-    <li key={key} className={className}>{children}</li>
+    <li className={`${styles.item}`}>{children}</li>
   )
 }
 
