@@ -1,28 +1,21 @@
-import React from "react";
-
-type Todo = {
-  items: {id: number, txt: string}[]
+import TodoItem from "./TodoItem"
+/**
+ * ! O type abaixo nos diz como devem ser as props
+ * ! Elas devem ter um array chamado items e um className tipo string
+ */
+interface Todo {
+  items: {id: number, txt: string}[],
+  className: string
 }
 
 const Todos = (props: Todo) => {
-  const { items } = props
-  console.log(...items);
-  
+    const {items} = props
   return (
       <ul>
-        {items.map(el => <li key={el.id}>{el.txt}</li>)}
+        {/* {items.map(el => <li key={el.id} className={props.className}>{el.txt}</li>)} */}
+        {items.map(el => <TodoItem key={el.id} className={props.className}>{el.txt}</TodoItem>)}
       </ul>
   )
 }
-
-// const Todos: React.FC<{ items: Todo[] }> = props =>{
-//   return(
-//     <>
-//        <ul>
-//          {props.items.map(el => <li key={el.id}>{el.txt}</li>)}
-//        </ul>
-//     </>
-//   )
-// }
 
 export default Todos;

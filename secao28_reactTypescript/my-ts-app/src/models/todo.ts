@@ -1,4 +1,4 @@
-type Todo = {
+interface Todo {
   id: number
   txt: string
 }
