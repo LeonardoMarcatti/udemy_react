@@ -1,12 +1,11 @@
-import React, {useRef} from "react"
+import React, {useRef, useContext} from "react"
+import { TodoContext } from "../store/todoContext"
 import styles from './NewTodo.module.css'
 
-interface Props {
-  onAddToDo: (txt: string) => void
-}
 
-const NewTodo = (props: Props) => {
-  const {onAddToDo} = props
+
+const NewTodo = () => {
+  const ctx = useContext(TodoContext);
   const text = useRef<HTMLInputElement>(null);
 
   // React.FormEvent é um tipo especial de dados interno do React
@@ -17,16 +16,17 @@ const NewTodo = (props: Props) => {
       return;
     }
 
-    onAddToDo(enteredTXT)
+    ctx.addToDoHandler(enteredTXT)
+    text.current!.value = ''
   }  
 
    return (
       <form onSubmit={submitHandler} className={`${styles.form}`}>
          <div className="mb-3">
             <label htmlFor="todo">ToDo:</label>
-            <input type="text" name="todo" id="todo" placeholder="Todo" ref={text}  className="form-control"/>
+            <input type="text" name="todo" id="todo" placeholder="Add ToDo" ref={text}  className="form-control"/>
          </div>
-         <button type="submit" className="btn btn-outline-danger">Add ToDo</button>
+         <button type="submit">Add ToDo</button>
     </form>
   )
 }

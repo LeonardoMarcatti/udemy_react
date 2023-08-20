@@ -1,15 +1,14 @@
-import React from "react"
 import styles from './TodoItem.module.css'
 interface Todo {
-  children: string
+  children: string,
+  onDeleteToDo : () => void
 }
 
-
 const TodoItem = (props: Todo) => {
-  const {children} = props
+  const {children, onDeleteToDo} = props
   
   return (
-    <li className={`${styles.item}`}>{children}</li>
+    <li className={`${styles.item}`} onClick={onDeleteToDo}>{children}</li>
   )
 }
 
