@@ -1,13 +1,12 @@
-import { useState, useCallback } from "react";
+import { useDispatch, useSelector } from 'react-redux'
+import { toggle } from '../store/store'
 
 const useToggle = () => {
-  const [state, setState] = useState(true)
-  const changeState = useCallback(() => {
-    setState(prevState => !prevState)
-  }, [])
+  const dispatch = useDispatch()
+  const status = useSelector(state => state.status)
+  const toggleStatus = () => dispatch(toggle())
 
-    return {state, changeState}
-
+  return {status, toggleStatus}
 }
 
 export default useToggle;

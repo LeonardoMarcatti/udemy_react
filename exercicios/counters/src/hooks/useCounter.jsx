@@ -1,15 +1,14 @@
-import { useState, useCallback } from "react";
+import {useSelector, useDispatch} from 'react-redux'
+import {add, del, amountAdd, amountDel}from "../store/store";
 
 const useCounter = () => {
-  const [value, setValue] = useState(0)
-  const changeValue = useCallback((p) => {
-    if (p === true) {
-      setValue((prevState) => prevState + 1)
-    } else{
-      setValue((prevState) => prevState - 1)
-    }
-  },[])
-  return {value, changeValue}
+  const dispatch = useDispatch();
+  const value = useSelector(state => state.value)
+  const addValue = () => dispatch(add())
+  const delValue = () => dispatch(del())
+  const amountPlus = (val) => dispatch(amountAdd(val))
+  const amountRemove = (val) => dispatch(amountDel(val))
+  return {value, addValue, delValue, amountPlus, amountRemove}
 }
 
 export default useCounter

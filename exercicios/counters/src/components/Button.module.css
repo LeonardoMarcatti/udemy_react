@@ -34,3 +34,19 @@
 .minus:hover {
   background-color: rgb(255, 20, 63);
 }
+
+.del5 {
+  background-color: rgb(146, 15, 146);
+}
+
+.del5:hover {
+  background-color: rgb(216, 63, 216);
+}
+
+.add5 {
+  background-color: rgb(4, 114, 46);
+}
+
+.add5:hover {
+  background-color: rgb(111, 228, 95);
+}

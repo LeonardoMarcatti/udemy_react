@@ -1,3 +1,5 @@
+import React from "react"
+
 interface Todo {
   id: number
   txt: string
@@ -6,7 +8,7 @@ interface Todo {
 interface ctx {
   items: Todo[],
   addToDoHandler: (txt: string) => void,
-  deleteToDo: (id: number) => void,
+  deleteToDo: (id: number) => void
 }
 
 interface Props {

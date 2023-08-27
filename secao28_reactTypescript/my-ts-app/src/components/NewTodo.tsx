@@ -2,15 +2,13 @@ import React, {useRef, useContext} from "react"
 import { TodoContext } from "../store/todoContext"
 import styles from './NewTodo.module.css'
 
-
-
 const NewTodo = () => {
   const ctx = useContext(TodoContext);
   const text = useRef<HTMLInputElement>(null);
 
   // React.FormEvent é um tipo especial de dados interno do React
-  const submitHandler = (e: React.FormEvent) => {
-    e.preventDefault()    
+  const submitHandler = (event: React.FormEvent) => {
+    event.preventDefault()    
     const enteredTXT  = text.current!.value
     if (enteredTXT.trim().length === 0) {
       return;
