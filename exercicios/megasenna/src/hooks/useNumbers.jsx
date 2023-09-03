@@ -1,9 +1,15 @@
-import {useState, useCallback} from 'react';
+
+import {useSelector, useDispatch} from 'react-redux';
+import {pushNumber} from '../store/store'
 
 const useNumber = () => {
-  const [numbers, setNumbers] = useState([]);
-  const addNumber = useCallback(() => {
-    const allNumbers = []
+  const dispatch = useDispatch()
+  const numbers = useSelector(state => state.values)
+  const addNumber = (val) => dispatch(pushNumber(val))
+
+  console.log(numbers);
+  const start = () => {
+    const allNumbers = [];
     const sortNumber = () => Math.floor(Math.random() * 59 + 1)
     const checkNumber = (val) => {
       if (allNumbers.indexOf(val) !== -1) {
@@ -23,11 +29,13 @@ const useNumber = () => {
       }
       allNumbers.push(sortedNumber)
     }
-    setNumbers(allNumbers.sort(order));
 
-  }, [])
+    allNumbers.sort(order)
 
-  return {numbers, addNumber}
+    addNumber(allNumbers)
+  }
+  
+  return {numbers, start}
 
 }
 

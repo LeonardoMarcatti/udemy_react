@@ -5,11 +5,11 @@ import Numbers from './components/Numbers';
 
 function App() {
   console.log('App');
-  const {numbers, addNumber} = useNumber();
+  const {numbers, start} = useNumber();
 
   return (
     <div className="App">
-      <Button className="btn btn-danger" onClick={addNumber} />
+      <Button className="btn btn-danger" onClick={start} />
       {
         numbers.length > 0 ? <Numbers numbers={numbers}/> : ''
       }
