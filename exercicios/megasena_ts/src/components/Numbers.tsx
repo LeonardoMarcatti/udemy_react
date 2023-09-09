@@ -2,10 +2,11 @@ import {useAppSelector} from '../store/hook';
 
 const Numbers = () => {
    const sortedNumbers = useAppSelector(state => state.numbers.value)
-
+   const string = sortedNumbers.toString()
+   const preparedString = string.replaceAll(',', ' - ')
    return (
       <div>
-         <h1>{sortedNumbers.toString()}</h1>
+         <h2>{preparedString}</h2>
       </div>
    )
 }

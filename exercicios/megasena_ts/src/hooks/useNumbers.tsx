@@ -1,9 +1,8 @@
 import {addNumbers} from '../store/store'
-import { useAppDispatch, useAppSelector } from '../store/hook'
+import { useAppDispatch } from '../store/hook'
 
 const useNumber = () => {
   const dispatch = useAppDispatch()
-  const numers = useAppSelector(state => state.numbers.value)
   const addNumers = (val: number[]) => dispatch(addNumbers(val))
 
   const start = () => {
@@ -32,9 +31,11 @@ const useNumber = () => {
     myNumbers.sort(order)
     addNumers(myNumbers)
   }
-  
-  return {numers, start}
+  const erase = () => dispatch(addNumbers([0,0,0,0,0,0])) 
+    
+  return {start, erase}
 
 }
+
 
 export default useNumber;

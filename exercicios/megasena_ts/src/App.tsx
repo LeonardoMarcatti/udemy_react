@@ -5,15 +5,29 @@ import useNumber from './hooks/useNumbers';
 import './App.css';
 
 function App() {
-  const {start} = useNumber()
+  const {start, erase} = useNumber()
   const dispatch = useAppDispatch()
   const go = () => dispatch(start)
-
+  const clean = () => dispatch(erase)
   return (
-    <div className="App-header">
-      <Numbers />
-      <Button className="btn btn-danger" onClick={go} txt="Sortear"/>
+    <div className='body'>
+      <header>
+        <h1>MEGA-SENA</h1>
+      </header>
+      <div className="App-header">
+        <div>
+          <Numbers />
+          <div>
+            <Button className="btn btn-success" onClick={go} txt="Sortear"/>
+            <Button className="btn btn-danger" onClick={clean} txt="Limpar"/>
+          </div>
+        </div>
+      </div>
+    <footer>
+      <small>Feito por Leonardo Marcatti</small>
+    </footer>
     </div>
+    
   );
 }
 

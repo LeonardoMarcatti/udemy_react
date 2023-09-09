@@ -4,7 +4,7 @@ interface Numbers {
   value: number[]
 }
 
-const initialState: Numbers = {value: []}
+const initialState: Numbers = {value: [0,0,0,0,0,0]}
 
 export const numbersSlice = createSlice({
   name: 'numbers',
