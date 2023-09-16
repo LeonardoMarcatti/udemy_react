@@ -1,0 +1,12 @@
+* {
+   margin: 5px;
+ }
+
+.title {
+   text-align: center;
+   margin: 0 auto;
+}
+
+.text {
+   text-indent: 1rem;
+}

@@ -2,7 +2,7 @@ import Button from './components/Button'
 import Numbers from './components/Numbers';
 import { useAppDispatch} from './store/hook'
 import useNumber from './hooks/useNumbers';
-import './App.css';
+import styles from'./App.module.css';
 
 function App() {
   const {start, erase} = useNumber()
@@ -10,11 +10,11 @@ function App() {
   const go = () => dispatch(start)
   const clean = () => dispatch(erase)
   return (
-    <div className='body'>
-      <header>
+    <div className={`${styles.body}`}>
+      <header className={`${styles.header}`}>
         <h1>MEGA-SENA</h1>
       </header>
-      <div className="App-header">
+      <div className={`${styles.Appheader}`}>
         <div>
           <Numbers />
           <div>
