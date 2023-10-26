@@ -39,12 +39,50 @@
   --color-primary-900: #f6ad1b;
 }
 
-body {
-  margin: 0;
+#root {
+	display: grid;
+	grid-template-columns: 1fr;
+	min-height: 100vh;
+	grid-template-rows: 50px minmax(calc(100vh - 80px), auto) 30px;
+	background-color: #242424;
+	color: white;
+}
+
+header, footer {
+	display: flex;
+	flex-flow: row nowrap;
+	align-items: center;
+	justify-content: center;
+}
+
+main {
+  padding: 5px;
+}
+ 
+footer {
+	background-color: rgb(70, 66, 66);
+	color: white;
 }
 
 ul {
-  list-style: none;
-  margin: 0;
-  padding: 0;
+	list-style: none;
+	margin: 0;
+	padding: 0;
+}
+
+#list > li {
+  margin-top: 10px;
+}
+
+#list > li > a {
+  text-decoration: none;
+  &:hover {
+    color: red;
+    margin-left: 15px;
+    font-weight: bold;
+    transition: all 0.25s ease-in-out;
+  }
+  &:not(hover){
+    transition: all 0.25s ease-in-out;
+  }
 }

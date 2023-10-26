@@ -1,0 +1,19 @@
+.ul {
+   display: flex;
+   flex-flow: row nowrap;
+   align-items: center;
+   justify-content: flex-start;
+   margin-top: 10px;
+}
+
+.ul > li > a {
+   margin-right: 15px;
+   padding: 5px 15px;
+   text-decoration: none;
+   list-style: none;
+}
+
+a.active {
+   color: red;
+   border-bottom: 1px solid red;
+}

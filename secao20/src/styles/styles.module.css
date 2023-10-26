@@ -1,0 +1,13 @@
+.root {
+   background-color: #242424;
+   color: white;
+}
+
+.title {
+   text-align: center;
+   margin: 0 auto;
+}
+
+.text {
+   text-indent: 1rem;
+}
