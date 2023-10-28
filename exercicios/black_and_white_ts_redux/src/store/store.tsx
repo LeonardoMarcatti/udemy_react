@@ -12,8 +12,6 @@ export const modeSlice = createSlice({
   reducers: {
     toggle: state => {
        state.pageMode = !state.pageMode
-         console.log('ok');
-         
       }
   }
 })

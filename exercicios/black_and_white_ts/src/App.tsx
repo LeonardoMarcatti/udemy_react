@@ -3,7 +3,7 @@ import Button from './components/Button';
 import { useState } from 'react';
 
 function App() {
-  const [mode, setMode] = useState(true)
+  const [mode, setMode] = useState<boolean>(true)
   const toggleMode = () => {
     setMode(prevState => !prevState)
   }
