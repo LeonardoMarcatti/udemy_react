@@ -1,0 +1,11 @@
+
+
+#examples menu button:hover {
+   background-color: #1b082f;
+   color: #ebe7ef;
+}
+
+#examples menu button.active {
+   background-color: #7925d3;
+   color: #ebe7ef;
+}

@@ -7,7 +7,6 @@ const useNumber = () => {
   const numbers = useSelector(state => state.values)
   const addNumber = (val) => dispatch(pushNumber(val))
 
-  console.log(numbers);
   const start = () => {
     const allNumbers = [];
     const sortNumber = () => Math.floor(Math.random() * 59 + 1)
