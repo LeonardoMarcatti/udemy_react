@@ -4,13 +4,16 @@ import { useState } from "react";
 const Player = (props) => {
    const {name, symbol} = props
    const [isEditing, setEditing] = useState(false)
-   const [playerName, setPlayerName] = useState('')
+   const [playerName, setPlayerName] = useState(name)
 
    const editName = () => setEditing( prevState => !prevState)
+   const saveName = (e) => setPlayerName(e.target.value)
+
    return <li>
             <span className="player">
                {
-                  !isEditing ? <span className="player-name">{name}</span> : <input type="text" name="playerName" id="playerName" /> 
+                  !isEditing ? 
+                  <span className="player-name">{playerName}</span> : <input type="text" name="playerName" id="playerName" value={playerName} onChange={saveName}/> 
                }
             
             <span className="player-symbol">{symbol}</span>
