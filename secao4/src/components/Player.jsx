@@ -2,14 +2,14 @@ import React from "react";
 import { useState } from "react";
 
 const Player = (props) => {
-   const {name, symbol} = props
+   const {name, symbol, isActive} = props
    const [isEditing, setEditing] = useState(false)
    const [playerName, setPlayerName] = useState(name)
 
    const editName = () => setEditing( prevState => !prevState)
    const saveName = (e) => setPlayerName(e.target.value)
 
-   return <li>
+   return <li className={isActive? 'active': ''}>
             <span className="player">
                {
                   !isEditing ? 
