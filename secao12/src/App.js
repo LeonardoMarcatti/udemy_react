@@ -7,7 +7,6 @@ function App() {
   const [showP, setShowP] = useState(false)
 
   const handleClick = useCallback (() => setShowP(prevState => !prevState),[])
-  console.log('App');
 
   return (
     <div className="app">
