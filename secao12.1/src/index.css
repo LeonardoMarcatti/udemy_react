@@ -159,7 +159,7 @@ header h1 {
   border: none;
   border-radius: 24px;
   /* background: linear-gradient(180deg, #81f1fb 0%, #73d2f8 100%); */
-  background: #6cb7f5;
+  background: #5a76f1;
   cursor: pointer;
   transition: all 0.2s ease-in-out;
 }
@@ -180,7 +180,7 @@ header h1 {
 
 .answer button.correct {
   /* background: linear-gradient(180deg, #a1fa61 0%, #52d482 100%); */
-  background: #5af59d;
+  background: #00ff55;
   color: #2c203d;
 }
 
@@ -322,6 +322,21 @@ header h1 {
   margin-top: -0.7rem;
   margin-left: 0.2rem;
   letter-spacing: 0.1rem;
+}
+
+#restart {
+  font-weight: bold;
+  padding: 10px 20px;
+  background-color: white;
+  border: 3px solid #30273a;
+  color: #30273a;
+  border-radius: 5px;
+}
+
+#restart:hover {
+  background-color: #30273a;
+  border: 3px solid white;
+  color: white;
 }
 
 @keyframes slide-in-from-bottom {
