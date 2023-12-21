@@ -1,7 +1,9 @@
 import UserFinder from './components/UserFinder';
 import UsersContext from './context/userscContext';
 
-const DUMMY_USERS = [     { id: 'u1', name: 'Max' },     { id: 'u2', name: 'Manuel' },     { id: 'u3', name: 'Julie' },   ];
+const DUMMY_USERS = [
+  { id: 'u1', name: 'Max' }, { id: 'u2', name: 'Manuel' }, { id: 'u3', name: 'Julie' },
+];
 
 function App() {
 
