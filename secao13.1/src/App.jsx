@@ -14,7 +14,7 @@ const App = () => {
     <>
       <Header />
       <main>
-        <Config onSet={handleSetCount}/>
+        <Config onSet={handleSetCount} />
         <Counter initialCount={chosenCount} key={chosenCount}/>
       </main>
     </>
