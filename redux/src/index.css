@@ -1,0 +1,47 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: sans-serif;
+  color: #252525;
+  background-color: #252525;
+}
+
+button {
+  font: inherit;
+  cursor: pointer;
+  background-color: #3c0080;
+  border: 1px solid #3c0080;
+  color: white;
+  padding: 0.5rem 1.5rem;
+  border-radius: 6px;
+  margin: 10px 15px;
+}
+
+button:hover,
+button:active {
+  background-color: #5b14ac;
+  border-color: #5b14ac;
+}
+
+#insertValue {
+  width: 50%;
+  margin: 0 auto;
+  display: flex;
+  flex-flow: column nowrap;
+  align-items: center;
+  justify-content: center;
+}
+
+#insertValue input {
+  height: 45px;
+  border: 2px solid purple;
+  background-color: transparent;
+  border-radius: 5px;
+  outline: none;
+  font-weight: bolder;
+  font-size: 25px;
+  width: 50%;
+}
