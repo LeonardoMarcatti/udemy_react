@@ -40,7 +40,10 @@ const App = () => {
       return;
     }
 
-    dispatch(sendCartData(cart))
+    if (cart.changed) {
+      dispatch(sendCartData(cart))
+    }
+
 
     // sendData().catch(error => dispatch(showNotification({status: 'error', title: 'Error', message: 'Data not sent'})))
     

@@ -8,7 +8,7 @@ const sendCartData = (cart) => {
       const sendRequest = async () => {
          const response = await fetch('https://projetc-react-default-rtdb.firebaseio.com/cart.json', {
             method: 'put',
-            body: JSON.stringify(cart)
+            body: JSON.stringify({items: cart.items, totalAmount: cart.totalAmount, totalQuantity: cart.totalQuantity})
           })
     
           if (!response.ok) {
@@ -43,7 +43,7 @@ const fetchCartData = () => {
 
       try {
          const data = await fetchData()
-         dispatch(replaceCart(data))
+         dispatch(replaceCart({items: data.items || [], totalAmount: data.totalAmount, totalQuantity: data.totalQuantity || 0}))
       } catch (error) {
          dispatch(showNotification({status: 'error', title: 'Error', message: 'Data not fetched'}))
       }
