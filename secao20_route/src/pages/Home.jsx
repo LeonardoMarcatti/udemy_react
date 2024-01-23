@@ -2,8 +2,7 @@ import React from "react";
 import Lorem from "../components/Lorem";
 import { useNavigate } from "react-router-dom";
 
-const Home = () => {
-
+ const Home = () => {
    const navigate = useNavigate()
    const navigateHandler = () => navigate('/abc')
    

@@ -1,4 +1,4 @@
-import React, {useState, useCallback, useRef} from "react";
+import React, {useState, useCallback} from "react";
 import questions from '../questions'
 import Summary from "./Summary";
 import Question from "./Question";

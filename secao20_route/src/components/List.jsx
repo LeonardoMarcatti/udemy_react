@@ -1,18 +1,21 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
-const productsList = ['Carros', 'Motos', 'Caminhões', 'Utilitários', 'Pickups']
+const productsList = [{id: 'cars', name: 'Carros'}, {id: 'motorcycles', name: 'Motos'}, {id: 'trucks', name: 'Caminhões'}, {id: 'working', name: 'Utilitários'}, {id: 'pickups', name: 'Pickups'}]
 
 const List = () => {
    return (
       <ul id="list">
          {
-            productsList.map((el, i) => {
-               return <li key={i}><Link to={`${el}`}>{el}</Link></li>
-            })
+            React.Children.toArray(
+               productsList.map((el) => {
+                  return <li><Link to={`${el.id}`}>{el.name}</Link></li>
+               })
+            )
          }
       </ul>
    )
 }
 
+export {productsList}
 export default List

@@ -1,6 +1,7 @@
 import React from "react";
 import complete from '../assets/quiz-complete.png'
 import question from '../questions'
+
 const Summary = (props) => {
    const {restartQuiz, userAnswers} = props
 

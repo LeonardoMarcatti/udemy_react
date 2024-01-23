@@ -5,6 +5,7 @@ import {UserProgressContext} from '../store/UserProgressContext'
 import { currnecyFormatter } from "../util/formating";
 import Button from "./UI/Button";
 import CartItem from "./Cartitem";
+
 const Cart = () => {
    const ctx = useContext(CartContext)
    const progressCtx = useContext(UserProgressContext)

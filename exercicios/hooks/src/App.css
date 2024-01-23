@@ -1,0 +1,12 @@
+#root {
+  width: auto;
+  padding: 10px;
+}
+
+button {
+  margin: 5px;
+}
+
+ul, li {
+  list-style: none;
+}

@@ -1,8 +1,7 @@
 import { useState } from 'react';
-
 import { log } from '../../log.js';
 
-function HistoryItem({ count }) {
+const HistoryItem = ({ count }) => {
   log('<HistoryItem /> rendered', 3);
 
   const [selected, setSelected] = useState(false);
