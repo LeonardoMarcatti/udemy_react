@@ -5,13 +5,11 @@ import { useRef } from 'react';
 const Counter = () => {
   const numberRef = useRef()
   const dispatch = useDispatch()
-  const counter = useSelector(state => state.counter)
-  const show = useSelector(state => state.show)
-  const addValue = () => dispatch({type: 'add', amount: numberRef.current.value})
+  const counter = useSelector(state => state.counter.counter)
+  const show = useSelector(state => state.counter.show)
+  const addValue = () => dispatch(add(numberRef.current.value))
   const delValue = () => dispatch({type: 'del', amount: numberRef.current.value})
-  const toggleShow = () => dispatch({type: 'show'})
-
-
+  const toggleShow = () => dispatch()
 
   return (
     <main className={classes.counter}>

@@ -1,4 +1,4 @@
-import {configureStore, createSlice} from '@reduxjs/toolkit'
+import {createSlice, configureStore} from '@reduxjs/toolkit'
 
 interface modeState {
    pageMode: boolean
