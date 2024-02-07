@@ -9,9 +9,7 @@ interface Props {
 const Button = (props: Props) => {
    const {txt, className} = props
    const dispatch = useAppDispatch();
-   const chooseMode = () => {
-      dispatch(toggle())
-    }
+   const chooseMode = () => dispatch(toggle())
 
    return (
       <>

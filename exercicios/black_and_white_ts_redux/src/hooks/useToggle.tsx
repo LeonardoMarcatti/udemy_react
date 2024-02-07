@@ -6,7 +6,7 @@ interface Props {
 }
 
 const useToggle = () => {
-   const mode = useAppSelector(state => state.mode.pageMode)
+   const mode = useAppSelector(state => state.pageMode)
 
    let props: Props = {
       txt: '',

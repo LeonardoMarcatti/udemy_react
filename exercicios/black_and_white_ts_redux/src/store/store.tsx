@@ -1,31 +1,13 @@
-import {createSlice, configureStore} from '@reduxjs/toolkit'
+import {configureStore} from '@reduxjs/toolkit'
+import modeSlice from './modeSlice'
 
-interface modeState {
-   pageMode: boolean
-}
-
-const initialState: modeState = {pageMode: false}
-
-export const modeSlice = createSlice({
-  name: 'mode',
-  initialState,
-  reducers: {
-    toggle: state => {
-       state.pageMode = !state.pageMode
-      }
-  }
-})
 
 export const {toggle} = modeSlice.actions
 
-export const selectMode = (state: RootState) => state.mode.pageMode
+// export const selectMode = (state: RootState) => state.mode.pageMode
 
-export const store = configureStore({
-   reducer: { mode: modeSlice.reducer }
-})
-
-
-export default modeSlice.reducer
+const store = configureStore({reducer: modeSlice.reducer })
+export default store
 
 export type RootState = ReturnType<typeof store.getState>
 export type AppDispatch = typeof store.dispatch

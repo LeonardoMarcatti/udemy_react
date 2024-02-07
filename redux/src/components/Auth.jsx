@@ -3,6 +3,7 @@ import {useDispatch, useSelector} from 'react-redux'
 import {login} from '../store/newStore'
 import { useRef } from 'react';
 import  Input  from './UI/Input';
+
 const Auth = () => {
   const dispatch = useDispatch()
   const auth = useSelector(state => state.auth.isAuthenticated)
