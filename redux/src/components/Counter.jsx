@@ -1,5 +1,6 @@
 import classes from './Counter.module.css';
 import {useDispatch, useSelector} from 'react-redux'
+import {add, del, toggle} from '../store/newStore'
 import { useRef } from 'react';
 
 const Counter = () => {
@@ -8,8 +9,8 @@ const Counter = () => {
   const counter = useSelector(state => state.counter.counter)
   const show = useSelector(state => state.counter.show)
   const addValue = () => dispatch(add(numberRef.current.value))
-  const delValue = () => dispatch({type: 'del', amount: numberRef.current.value})
-  const toggleShow = () => dispatch()
+  const delValue = () => dispatch(del(numberRef.current.value))
+  const toggleShow = () => dispatch(toggle())
 
   return (
     <main className={classes.counter}>
