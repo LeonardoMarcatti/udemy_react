@@ -14,18 +14,13 @@
 .form textarea {
   font: inherit;
   padding: 0.25rem;
-  border-radius: 5px;
-  margin-bottom: 15px;
-  background-color: rgb(80, 80, 80);
-  color: white;
-  border: 2px solid white;
-  outline: red;
 }
 
 .actions {
   display: flex;
   gap: 1rem;
   justify-content: flex-end;
+  align-items: center;
 }
 
 .actions button {
@@ -33,20 +28,22 @@
   cursor: pointer;
   padding: 0.5rem 1.5rem;
   border-radius: 4px;
-  background-color: rgb(6, 6, 204);
-  color: white;
+  background-color: var(--color-gray-300);
+  color: var(--color-gray-800);
   border: none;
+  margin-top: 10px;
 }
 
-.actions button[type='button'] {
+.actions a {
+  text-decoration: none;
   background-color: transparent;
-  color: gray;
+  color: var(--color-gray-300);
 }
 
 .actions button:hover {
-  background-color: darkblue;
+  background-color: var(--color-primary-300);
 }
 
-.actions button[type='button']:hover {
-  background-color: darkblue;
+.actions a:hover {
+  background-color: var(--color-gray-800);
 }
