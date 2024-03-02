@@ -20,7 +20,6 @@ const Root = () => {
       }
 
       const tokenduration = getTokenDuration()
-      console.log(tokenduration);
       
       setTimeout(() => {
          submit(null, {action: '/logout', method: 'post'})

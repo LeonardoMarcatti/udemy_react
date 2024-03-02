@@ -1,0 +1,2 @@
+"use strict";(self.webpackChunkreact_temp=self.webpackChunkreact_temp||[]).push([[793],{793:(t,s,e)=>{e.r(s),e.d(s,{default:()=>p,postsLoader:()=>i});var c=e(216),o=e(475);const r="PostList_list__zl9Ee";var l=e(579);const n=function(t){let{posts:s}=t;return(0,l.jsx)("ul",{className:r,children:s.map((t=>(0,l.jsx)("li",{children:(0,l.jsx)(o.N_,{to:t.id.toString(),children:t.title})},t.id)))})},i=()=>fetch("https://jsonplaceholder.typicode.com/posts"),p=()=>{const t=(0,c.LG)();return(0,l.jsx)(n,{posts:t})}}}]);
+//# sourceMappingURL=793.cd2a3429.chunk.js.map
