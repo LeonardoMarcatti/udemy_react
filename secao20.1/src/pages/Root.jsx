@@ -1,5 +1,5 @@
 import React, {useEffect} from "react";
-import { Outlet, useNavigation, useLoaderData, useSubmit } from "react-router-dom"; 
+import { Outlet, useLoaderData, useSubmit } from "react-router-dom"; 
 import MainNavigation from '../components/MainNavigation'
 import Footer from "../components/Footer";
 import { getTokenDuration } from "../util/auth";

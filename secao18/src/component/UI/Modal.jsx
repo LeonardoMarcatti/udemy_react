@@ -7,9 +7,9 @@ const Modal = (props) => {
 
    useEffect(() => {
       const modal = dialog.current
-     if (open) {
-      modal.showModal()
-     }
+      if (open) {
+         modal.showModal()
+      }
       
      return () => modal.close()
    }, [open])

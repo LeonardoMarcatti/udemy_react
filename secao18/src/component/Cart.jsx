@@ -14,7 +14,7 @@ const Cart = () => {
    const handleShowCheckout = () => progressCtx.showCheckout()
    
    return (
-      <Modal className="cart" open={progressCtx.progress == 'cart'} onClose={progressCtx.progress == 'cart' ?handleCloseCart : null}>
+      <Modal className="cart" open={progressCtx.progress == 'cart'} onClose={progressCtx.progress == 'cart' ? handleCloseCart : null}>
          <h2>Your Cart</h2>
          <ul>
          {
