@@ -3,8 +3,9 @@ import {useForm} from 'react-hook-form'
 
 const App = () => {
   const { register, handleSubmit, watch, formState: { errors, isValid } } = useForm({mode: 'onChange'});
-  const onSubmit = data => console.log(data);
-  console.log(watch('name')); //Mostra em tempo real o que é digitado
+  const onSubmit = data => alert(`Name: ${data.name}
+  Email: ${data.email}`);
+  console.log(watch('name'), watch('email')); //Mostra em tempo real o que é digitado
 
   return (
     <div className="App">

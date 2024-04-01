@@ -2,7 +2,7 @@ import { Component } from 'react';
 import Users from './Users';
 import classes from './UserFinder.module.css';
 import Test from './Test';
-import UsersContext from '../context/userscContext';
+import UsersContext from '../context/usersContext';
 import ErrorBoundary from './ErrorBoundary';
 
 class UserFinder extends Component {

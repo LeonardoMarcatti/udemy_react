@@ -13,8 +13,10 @@ export default function EventDetails() {
   const id = params.id
   const {data, isPending, isError, error } = useQuery({
     queryKey: ['events', id],
+    //signal é um objeto que é automaticamente recebido pela função
     queryFn: ({signal}) => fetchEvent({id, signal}), enabled: id != null 
   })
+
 
   const {mutate} = useMutation({
     mutationFn: deleteEvent,

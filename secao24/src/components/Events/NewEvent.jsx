@@ -11,7 +11,7 @@ export default function NewEvent() {
     mutationFn: createNewEvent,     
     onSuccess: () => {
       navigate('/events'), 
-      queryClient.invalidateQueries({
+      queryClient.invalidateQueries({ //Necessário para reiniciar a função que recolhe os dados e atualiza a página
         queryKey: ['events']
       }) 
     }
