@@ -1,37 +1,21 @@
-import { Link, Outlet, useParams, useNavigate } from 'react-router-dom';
+import { Link, Outlet, useParams} from 'react-router-dom';
 import Header from '../Header.jsx';
-import {useQuery, useMutation} from '@tanstack/react-query'
-import {fetchEvent, deleteEvent, queryClient} from '../../util/http.js'
 import ErrorBlock from '../UI/ErrorBlock.jsx';
 import Modal from '../UI/Modal.jsx';
-import React, {useState}from 'react'
+import React from 'react'
+import useFetchDetails from '../../hooks/eventDetaisHooks/useFetchDetails.jsx';
+import useUpdateDetails from '../../hooks/eventDetaisHooks/useUpdateDetails.jsx';
+import useStateDetails from '../../hooks/eventDetaisHooks/useStateDetails.jsx';
+import useFormatDateHook from '../../hooks/eventDetaisHooks/useFormatDateHook.jsx';
 
 export default function EventDetails() {
-  const [deleting, setDeleting] = useState(false)
-  const navigate = useNavigate()
+  const {showModal, hideModal, deleting} = useStateDetails()
   const params = useParams()
   const id = params.id
-  const {data, isPending, isError, error } = useQuery({
-    queryKey: ['events', id],
-    //signal é um objeto que é automaticamente recebido pela função
-    queryFn: ({signal}) => fetchEvent({id, signal}), enabled: id != null 
-  })
-
-
-  const {mutate} = useMutation({
-    mutationFn: deleteEvent,
-    onSuccess: () => {
-      navigate('/events'), 
-      queryClient.invalidateQueries({
-        queryKey: ['events'],
-        refetchType: 'none'
-      }) 
-    }
-  })
-
+  const {data, isPending, isError, error} = useFetchDetails(id)
+  const {mutate, isDeleting, errorDeleting, deleteError} = useUpdateDetails()
   const handleDelete = () => mutate({id})
-  const showModal = () => setDeleting(true)
-  const hideModal = () => setDeleting(false)
+
 
   return (
     <>
@@ -41,8 +25,20 @@ export default function EventDetails() {
         <h3>This cannot be undone</h3>
         <p>The event will be deleted</p>
         <div className='form-actions'>
-          <button type="button" onClick={hideModal} className='button-text'>Cancel</button>
-          <button type="button" onClick={handleDelete} className='button'>Delete</button>
+          {
+            isDeleting && <p>Deleting</p>
+          }
+          {
+            !isDeleting && <>
+              <button type="button" onClick={hideModal} className='button-text'>Cancel</button>
+              <button type="button" onClick={handleDelete} className='button'>Delete</button>
+            </>
+          }
+
+          { 
+            errorDeleting && <ErrorBlock title="Failed to delete event" message={deleteError.info?.message || 'Failed'} />
+          }
+          
         </div>
       </Modal>
     }
@@ -70,7 +66,7 @@ export default function EventDetails() {
             <div id="event-details-info">
               <div>
                 <p id="event-details-location">{data.location}</p>
-                <time dateTime={`Todo-DateT$Todo-Time`}>{`${data.date} - ${data.time}`}</time>
+                <time dateTime={`Todo-DateT$Todo-Time`}>{`${useFormatDateHook(data.date)} - ${data.time}`}</time>
               </div>
               <p id="event-details-description">{data.description}</p>
             </div>

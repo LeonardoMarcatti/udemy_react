@@ -1,10 +1,12 @@
 import { Link } from 'react-router-dom';
 
 export default function EventItem({ event }) {
-  const formattedDate = new Date(event.date).toLocaleDateString('en-US', {
-    day: 'numeric',
-    month: 'short',
+  console.log(`${event.date} 00:00:00`);
+  const formattedDate = new Date(`${event.date} 00:00:00`).toLocaleDateString('en-US', {
+    weekday: 'long',
     year: 'numeric',
+    month: 'long',
+    day: 'numeric',
   });
   return (
     <article className="event-item">

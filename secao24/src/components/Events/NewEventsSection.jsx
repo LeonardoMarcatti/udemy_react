@@ -5,7 +5,7 @@ import ErrorBlock from '../UI/ErrorBlock.jsx';
 import EventItem from './EventItem.jsx';
 
 export default function NewEventsSection() {
-  const {data, isPending, isError, error } = useQuery({queryFn: fetchEvents, queryKey: ['events']});
+  const {data, isPending, isError, error } = useQuery({queryKey: ['events', {max:3}], queryFn: ({signal, queryKey}) => fetchEvents({signal, ...queryKey[1]}), gcTime: 5*60*1000});
   /**
    * * Duas opções no objeto acima que podem ser adicionadas são gcTime que limpa o cache depois de um tempo e staleTime que faz a busca após um tempo
    */

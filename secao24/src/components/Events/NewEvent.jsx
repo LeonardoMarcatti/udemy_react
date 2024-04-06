@@ -1,25 +1,13 @@
-import { Link, useNavigate } from 'react-router-dom';
-import {createNewEvent, queryClient} from '../../util/http.js'
+import { Link } from 'react-router-dom';
 import Modal from '../UI/Modal.jsx';
 import EventForm from './EventForm.jsx';
-import {useMutation} from '@tanstack/react-query' //useQuery é usado para pegar dados. Para enviar usamos useMutation
 import ErrorBlock from '../UI/ErrorBlock.jsx';
+import useMutationHook from '../../hooks/newEventHooks/useMutationHook.jsx';
+import useSubmitHook from '../../hooks/newEventHooks/useSubmitHook.jsx';
 
 export default function NewEvent() {
-  const navigate = useNavigate();
-  const {mutate, isPending, isError, error} = useMutation({
-    mutationFn: createNewEvent,     
-    onSuccess: () => {
-      navigate('/events'), 
-      queryClient.invalidateQueries({ //Necessário para reiniciar a função que recolhe os dados e atualiza a página
-        queryKey: ['events']
-      }) 
-    }
-  })
-
-  const handleSubmit = (formData) => {
-    mutate({event: formData})
-  }
+  const {mutate, isPending, isError, error} = useMutationHook()
+  const handleSubmit = useSubmitHook(mutate)
 
   return (
     <Modal onClose={() => navigate('../')}>

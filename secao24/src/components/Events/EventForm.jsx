@@ -1,25 +1,12 @@
-import { useState } from 'react';
-import {useQuery} from '@tanstack/react-query'
+
 import ImagePicker from '../ImagePicker.jsx';
-import {fetchSelectableImages} from '../../util/http.js'
 import ErrorBlock from '../UI/ErrorBlock.jsx';
+import useFetchImages from '../../hooks/formHooks/fetchImagesHook.jsx';
+import useSubmitHook from '../../hooks/formHooks/useSubmitHook.jsx';
 
 export default function EventForm({ inputData, onSubmit, children }) {
-  const [selectedImage, setSelectedImage] = useState(inputData?.image);
-  const {data, isPending, isError, error } = useQuery({queryKey: ['images'], queryFn: fetchSelectableImages})
-
-  function handleSelectImage(image) {
-    setSelectedImage(image);
-  }
-
-  function handleSubmit(event) {
-    event.preventDefault();
-
-    const formData = new FormData(event.target);
-    const data = Object.fromEntries(formData);
-
-    onSubmit({ ...data, image: selectedImage });
-  }
+  const {data, isPending, isError} = useFetchImages()
+  const {handleSubmit, handleSelectImage, selectedImage} = useSubmitHook(onSubmit, inputData)
 
   return (
     <form id="event-form" onSubmit={handleSubmit}>
