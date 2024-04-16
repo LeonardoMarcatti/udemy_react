@@ -1,5 +1,4 @@
 import {createBrowserRouter, RouterProvider} from 'react-router-dom'
-import EditEvent from './pages/EditEvent'
 import Error from './pages/Error'
 import {deleteEvent} from './pages/EventDetail'
 import Root from './pages/Root'
@@ -19,6 +18,7 @@ const Events = lazy(() => import('./pages/Events'))
 const EventDetail = lazy(() => import('./pages/EventDetail'))
 const AuthenticationPage = lazy(() => import('./pages/Authentication'))
 const Newsletter = lazy(() => import('./pages/Newsletter'))
+const EditEvent = lazy(() => import('./pages/EditEvent'))
 /**
  * ! loader carrega dados previamente ao carregamento da página. Só não pode ser usado em compoenetes acima do que o declara.
  * ! errorElement renderiza uma página de erro independentemente de onde o erro está
@@ -46,7 +46,7 @@ const router = createBrowserRouter([
           {path: 'editEvent',
             loader: checkAuthLoader,
             action: sendData,
-            element: <EditEvent/>},
+            element: <Suspense fallback={<p>Loading...</p>}><EditEvent/></Suspense>,}
         ]},
         {path: 'new', loader: checkAuthLoader, action: sendData, element: <NewEvent/>},
       ]},

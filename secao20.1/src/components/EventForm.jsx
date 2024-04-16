@@ -5,6 +5,7 @@ import getAuthToken from '../util/auth';
 
 const sendData = async ({request, params}) => {
   const data =  await request.formData()
+  
   const token = getAuthToken()
   const method = request.method
   let url = 'http://localhost:8080/events/'
@@ -19,6 +20,7 @@ const sendData = async ({request, params}) => {
       date: data.get('date'),
       description: data.get('description'),
   }
+  
   const result = await fetch(url, {
       method,
       headers: {
