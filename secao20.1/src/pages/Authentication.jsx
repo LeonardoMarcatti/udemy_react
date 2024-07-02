@@ -2,6 +2,7 @@ import AuthForm from '../components/AuthForm';
 import {json, redirect} from 'react-router-dom'
 
 const sendAuthData = async ({request, params}) => {
+   console.log('auth');
    const data = await request.formData();
    const authData = { email: data.get('email'), password: data.get('password')}
    const url = new URL(request.url).searchParams

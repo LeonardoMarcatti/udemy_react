@@ -30,7 +30,10 @@ function App() {
   return (
     <div className={`${styles.app}`}>
       <div>
-        Search: <input name="query" type="text" onChange={handleSearch} />
+        <form>
+        Search: <input name="query" type="text" onChange={handleSearch} id="s"   />
+
+        </form>
       </div>
       {filterList &&
         filterList.map((item, index) => (

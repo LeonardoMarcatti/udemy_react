@@ -20,14 +20,15 @@ const eventsLoader = async () => {
 }
 
 const Events = () => {
+   console.log('events');
    const {events} = useLoaderData() // Recebe o objeto que vem da função defer
    return (
       <Suspense fallback={<h3 style={{textAlign: 'center'}}>Loading events...</h3>} >
-      <Await resolve={events}>
-         {
-            (retrievedEvents) => <EventsList events={retrievedEvents} />
-         }
-      </Await>
+         <Await resolve={events}>
+            {
+               (retrievedEvents) => <EventsList events={retrievedEvents} />
+            }
+         </Await>
       </Suspense>
    );
 }

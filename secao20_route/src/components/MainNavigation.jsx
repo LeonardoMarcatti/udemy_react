@@ -10,7 +10,6 @@ const MainNavigation = () => {
       <header>
          <nav>
             <ul className={`${navigationStyles.ul}`}>
-               
                <li><NavLink to="" className={({isActive}) => isActive ? `${navigationStyles.active}` : '' } end >Home Page</NavLink></li>
                <li><NavLink to="products" className={({isActive}) => isActive ? `${navigationStyles.active}` : '' }>Products</NavLink></li>
             </ul>

@@ -7,11 +7,7 @@ const List = () => {
    return (
       <ul id="list">
          {
-            React.Children.toArray(
-               productsList.map((el) => {
-                  return <li><Link to={`${el.id}`}>{el.name}</Link></li>
-               })
-            )
+            productsList.map(el => <li key={el.id}><Link to={`${el.id}`}>{el.name}</Link></li>)
          }
       </ul>
    )

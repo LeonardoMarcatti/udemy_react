@@ -2,6 +2,7 @@ import NewsletterSignup from '../components/NewsletterSignup';
 import PageContent from '../components/PageContent';
 
 const Newsletter = () => {
+  console.log('news letter');
   return (
     <PageContent title="Join our awesome newsletter!">
       <NewsletterSignup />

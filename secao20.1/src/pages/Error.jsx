@@ -1,7 +1,7 @@
 import React from "react";
 import {useRouteError, Link} from 'react-router-dom'
-
 import PageContent from '../components/PageContent'
+
 const Error = () => {
    const routeError = useRouteError()
    let title = 'An error occurred'

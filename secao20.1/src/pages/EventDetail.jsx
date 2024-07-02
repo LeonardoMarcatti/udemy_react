@@ -50,6 +50,7 @@ const retrieveEvents = async () => {
  }
 
 const EventDetail = () => {
+   console.log('detail');
    const {event, events} = useRouteLoaderData('eventID')
 
    return <>

@@ -21,7 +21,7 @@ const router = createBrowserRouter([
         path: 'posts',
         children: [
           { index: true, 
-            element: <Suspense fallback={<p>Loading...</p>}><BlogPage /></Suspense>, 
+            element: <Suspense fallback={<p>Loading...</p>}><BlogPage/></Suspense>, 
             loader: () => import('./pages/Blog').then(module => module.postsLoader()) 
           },
           { path: ':id', 

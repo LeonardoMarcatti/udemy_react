@@ -6,7 +6,6 @@ import styles from './components/Button.module.css'
 import Text from './components/Text';
 
 function App() {
-  console.log('app');
   const {value, addValue, delValue, amountPlus, amountRemove} = useCounter()
   return (
     <>
