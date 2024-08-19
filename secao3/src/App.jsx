@@ -1,16 +1,18 @@
-import Header from "./components/Header.jsx";
-import CoreConcepts from "./components/CoreConcepts.jsx";
-import Examples from "./components/Examples.jsx";
-import { EXAMPLES, CORE_CONCEPTS } from "./data.js";
+import React from "react";
+import Header from "./components/Header";
+import Main from "./components/Main";
 
-const  App = () => {
+const reactDescriptions = ['Fundamental', 'Crucial', 'Core'];
+
+const genRandomInt = (max) => {
+  return Math.floor(Math.random() * max);
+}
+
+const App  = () => {
   return (
     <>
-      <Header />
-      <main>
-        <CoreConcepts data={CORE_CONCEPTS} />
-        <Examples data={EXAMPLES} />
-      </main>
+      <Header word={reactDescriptions[genRandomInt(3)]}/>
+      <Main />
     </>
   );
 }

@@ -1,20 +1,10 @@
-import React from "react";
-import './TabButton.css'
+import React, {memo} from "react";
+import styles from './TabButton.module.css'
 
-const TabButton = (props) => {
-   const {title, onSelect, isActive} = props
-   const adjustTitle = (title) => {
-      if (title === 'jsx') {
-         return title.toUpperCase()
-      }
-
-      return `${title[0].toUpperCase()}${title.substring(1)}`
-   }
-   return (
-      <li>
-         <button className={isActive ? 'active' : ''} onClick={() => onSelect(title)}>{adjustTitle(title)}</button>
-      </li>
-   )
-}
+const TabButton = memo(function TabButton({title, onHandleClick, isSelected}) {
+   return <li>
+      <button type="button" onClick={onHandleClick} className={isSelected && styles.active}>{title}</button>
+   </li>
+}) 
 
 export default TabButton
