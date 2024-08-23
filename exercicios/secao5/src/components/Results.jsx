@@ -1,7 +1,8 @@
 import React from "react";
 import {calculateInvestmentResults, formatter} from '../util/investment'
+import { memo } from "react";
 
-const Results = ({input}) => {
+const Results = memo(function Results({input}) {
    const result = calculateInvestmentResults(input)
    const initialInvestment = result[0].valueEndOfYear - result[0].interest - result[0].annualInvestment
    
@@ -35,6 +36,6 @@ const Results = ({input}) => {
          </tbody>
       </table>
    )
-}
+})
 
 export default Results
