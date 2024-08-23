@@ -26,7 +26,10 @@ body {
     url('bg-pattern-dark.png');
   background-repeat: repeat;
   background-size: 100% 100%, 30% 30%, 100% 100%;
-  min-height: 110rem;
+}
+
+#game-logo {
+   width: 50px;
 }
 
 header {
@@ -36,21 +39,21 @@ header {
 header img {
   width: 8rem;
   object-fit: contain;
-  margin: 3rem auto 1rem auto;
+  margin: 0;
   filter: drop-shadow(0 0 8px rgba(0, 0, 0, 0.4));
 }
 
 h1 {
   font-family: 'Caprasimo', cursive;
-  font-size: 3rem;
-  margin: 0 auto 3rem auto;
+  font-size: 2rem;
+  margin: 0;
   color: #3f3b00;
 }
 
 #game-container {
-  max-width: 45rem;
-  margin: 3rem auto;
-  padding: 2rem;
+  max-width: 40rem;
+  margin: 1rem auto;
+  padding: 5px;
   border-radius: 6px;
   background: linear-gradient(#383624, #282617);
   box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
@@ -163,8 +166,8 @@ ol {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  gap: 2rem;
-  margin: 3rem 0;
+  gap: 1rem;
+  margin: 1rem 0;
   padding: 0;
   flex-direction: column;
 }
@@ -173,14 +176,14 @@ ol {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  gap: 2rem;
+  gap: 1rem;
   margin: 0;
   padding: 0;
 }
 
 #game-board button {
-  width: 8rem;
-  height: 8rem;
+  width: 7rem;
+  height: 7rem;
   border: none;
   background: #aca788;
   color: #3f3b00;
