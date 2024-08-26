@@ -45,6 +45,10 @@ header p {
   color: #c6f4f2;
 }
 
+h2 {
+   text-align: center;
+}
+
 #player {
   text-align: center;
 }

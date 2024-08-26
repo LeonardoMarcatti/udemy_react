@@ -1,7 +1,7 @@
-import React, {useState, useRef} from "react";
+import React, {useState, useRef, memo} from "react";
 import ResultModal from "./ResultModal";
-const Timer = props => {
-   const {title, targetTime} = props
+
+const Timer = memo(function Timer({title, targetTime}) {
    const timer = useRef(null)
    const modalRef = useRef()
    const [timeRemaining, setTimeRemaining] = useState(targetTime * 1000)
@@ -33,7 +33,7 @@ const Timer = props => {
          <section className="challenge">
             <h2>{title}</h2>
             <p className="challenge-time">
-               {targetTime} second(s)
+               {targetTime} second{targetTime > 1 && 's'} 
             </p>
             <button type="button" onClick={activeTimer? handleStop : handleStart}>{activeTimer ? 'Stop' : 'Start'}</button>
             <p className={activeTimer? 'active': '' }>
@@ -42,6 +42,6 @@ const Timer = props => {
          </section>
       </>
    )
-}
+})
 
 export default Timer
