@@ -1,8 +1,7 @@
 import React from "react";
 import Button from "./UI/Button";
 
-const SideBar = (props) => {
-   const {onStartAddProject, projects, onSelectProject, id} = props
+const SideBar = ({onStartAddProject, projects, onSelectProject, id}) => {
    return (
       <>
          <aside className="w-1/3 px-8 py-16 bg-stone-900 text-stone-50 md:w-72">

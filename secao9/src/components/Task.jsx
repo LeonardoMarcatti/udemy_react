@@ -1,8 +1,8 @@
 import React from "react";
 import NewTask from "./NewTask";
 import Button from "./UI/Button";
-const Task = (props) => {
-   const {onAddTask, onDeleteTask, tasks, id} = props
+
+const Task = ({onAddTask, onDeleteTask, tasks, id}) => {
    const filteredTaks = tasks.filter(el => el.projectID == id)
    return <section>
       <h2 className="text-2xl font-bold text-stone-700">Tasks</h2>

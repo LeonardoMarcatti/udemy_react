@@ -10,8 +10,7 @@ const cancelClass = 'px-6 py-2 rounded-md text-gray-100 font-bold bg-gradient-to
 
 const backClass = 'px-5 py-2 rounded-md text-gray-100 font-bold rounded-mx border-yellow-400 text-yellow-400 border-2 hover:border-white  hover:bg-gradient-to-t hover:from-yellow-600 hover:to-yellow-400 hover:bg-yellow-400 hover:text-stone-100'
 
-const NewProject = (props) => {
-   const {getBack, onAdd, onCancel} = props
+const NewProject = ({getBack, onAdd, onCancel}) => {
    const titleRef = useRef('')
    const descriptionRef = useRef('')
    const dueDateRef = useRef('')

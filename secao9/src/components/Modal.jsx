@@ -2,8 +2,7 @@ import React, {forwardRef, useImperativeHandle, useRef} from "react"
 import {createPortal} from 'react-dom'
 import Button from "./UI/Button"
 
-const Modal = forwardRef((props, ref) => {
-   const {children, btnText, onDelete, id} = props
+const Modal = forwardRef(({children, btnText, onDelete, id}, ref) => {
    const dialog = useRef()
    let btnClass = "px-3 py-1 text-stone-100 rounded-md border-stone-300 "
    let bgModal = 'backdrop:bg-stone-900/90 p-4 rounded-xl'
