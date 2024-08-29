@@ -1,0 +1,32 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+* {
+  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+}
+
+#root {
+   display: grid;
+   grid-template-columns: repeat(5, 1fr);
+   min-height: 100vh;
+   grid-template-rows: 50px minmax(calc(100vh - 80px), auto) 30px;
+}
+
+header, footer {
+   grid-column: 1/6;
+   display: flex;
+   flex-flow: row nowrap;
+   align-items: center;
+   justify-content: center;
+
+}
+
+aside {
+   grid-column: 1/2;
+   padding: 10px;
+}
+
+main {
+   grid-column: 2/6;
+}

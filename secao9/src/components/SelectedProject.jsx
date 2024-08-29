@@ -5,8 +5,7 @@ import Modal from "./Modal";
 
 const btnClass = 'px-6 py-2 rounded-md text-gray-100 font-bold bg-gradient-to-r from-red-400 to-red-500 hover:from-red-500 hover:to-red-600 hover:text-stone-100'
 
-const SelectedProject = (props) => {
-   const {project, onDelete, onAddTask, onDeleteTask, tasks} = props
+const SelectedProject = ({project, onDelete, onAddTask, onDeleteTask, tasks}) => {
    const dangerModal = useRef()
    const formattedDate = new Date(project.dueDate).toLocaleDateString('pt-BR', {timeZone: 'UTC'})
 

@@ -74,7 +74,9 @@ const App = () => {
 
   if (projectState.selectedProjectID === null) {
     content = <NewProject getBack={handleCancel} onAdd={handleAddProject} onCancel={handleCancel}/>
-  } else if(projectState.selectedProjectID === undefined) {
+  }
+
+  if(projectState.selectedProjectID === undefined) {
     content = <NoProjectSelected onStartAddProject={handleStartProject} />
   }
 

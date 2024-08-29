@@ -1,8 +1,7 @@
 import React, {useRef, useImperativeHandle} from "react";
 import style from './input.module.css';
 
-const Input = React.forwardRef((props, ref) => {
-  const {isValid, type, id, value, onChange, onBlur, label} = props;
+const Input = React.forwardRef(({isValid, type, id, value, onChange, onBlur, label}, ref) => {
   const inputRef = useRef();
 
   const active = () => {
