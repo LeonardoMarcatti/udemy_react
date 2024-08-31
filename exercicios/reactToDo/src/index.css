@@ -30,3 +30,7 @@ aside {
 main {
    grid-column: 2/6;
 }
+
+textarea {
+   resize: none;
+}
