@@ -6,12 +6,12 @@ import Footer from './components/Footer'
 import useManagerState from './hooks/useManageState'
 
 const App = () => {
-   const {state, createProject, saveProject, cancelProject , selectProject} = useManagerState()
+   const {state, createProject, saveProject, cancelProject , selectProject, addTask} = useManagerState()
    
   return <>
       <Header onCreateProject={createProject}/>
       <Aside projects={state.projects} projectID={state.projectID} onSelectProject={selectProject} />
-      <Main projectID={state.projectID} onSaveProject={saveProject} onCancelProject={cancelProject} projects={state.projects}/>
+      <Main projectID={state.projectID} onSaveProject={saveProject} onCancelProject={cancelProject} projects={state.projects} onAddTask={addTask}/>
       <Footer />
   </>
 }

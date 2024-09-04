@@ -38,8 +38,23 @@ const useManagerState = () => {
          localStorage.setItem("state", JSON.stringify(state));
       }, [state.projects])
 
+      const addTask = (data) => {
+         setState(prevState => {
+            const newState = {...prevState}
+            const newProjects = [...newState.projects]
+            const id = newProjects.findIndex(el => el.id == newState.projectID)
 
-   return {state, createProject, saveProject, cancelProject , selectProject}
+            if (typeof(id) == 'number') {
+               const newTask = {data, id: Math.random()}
+               newProjects[id].tasks.push(newTask)
+            }
+            return newState
+         });
+      }
+      
+
+
+   return {state, createProject, saveProject, cancelProject , selectProject, addTask}
 }
 
 export default useManagerState

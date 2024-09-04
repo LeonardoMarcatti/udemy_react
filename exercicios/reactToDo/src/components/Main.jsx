@@ -2,7 +2,7 @@ import React, {memo} from 'react'
 import Form from './Form'
 import ProjectDetails from './ProjectDetails'
 
-const Main = memo(function Main({projectID, onSaveProject, onCancelProject, projects}) {
+const Main = memo(function Main({projectID, onSaveProject, onCancelProject, projects, onAddTask}) {
    
    return <main className='px-2 py-4 flex flex-row flex-nowrap items-center justify-center'>
       {
@@ -14,7 +14,7 @@ const Main = memo(function Main({projectID, onSaveProject, onCancelProject, proj
       }
 
       {
-         (projectID != 0 && projectID != null) && <ProjectDetails projects={projects} projectID={projectID}/>
+         (projectID != 0 && projectID != null) && <ProjectDetails projects={projects} projectID={projectID} onAddTask={onAddTask}/>
       }
       </main>  
 })
