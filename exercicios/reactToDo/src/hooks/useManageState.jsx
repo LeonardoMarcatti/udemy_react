@@ -2,7 +2,7 @@ import { useState, useEffect } from "react"
 
 const useManagerState = () => {
    const [state, setState] = useState(() => {
-      let savedState = JSON.parse(localStorage.getItem("state"));
+      let savedState = JSON.parse(sessionStorage.getItem("state"));
       if (!savedState) {
          savedState = { projectID: null, projects: [] }
       }
@@ -35,24 +35,20 @@ const useManagerState = () => {
       }
 
       useEffect(() => {
-         localStorage.setItem("state", JSON.stringify(state));
-      }, [state.projects])
+         sessionStorage.setItem("state", JSON.stringify(state));
+      }, [state])
 
       const addTask = (data) => {
          setState(prevState => {
             const newState = {...prevState}
             const newProjects = [...newState.projects]
             const id = newProjects.findIndex(el => el.id == newState.projectID)
-
-            if (typeof(id) == 'number') {
-               const newTask = {data, id: Math.random()}
-               newProjects[id].tasks.push(newTask)
-            }
+            const newTask = {data, id: Math.random()}
+            newProjects[id] = {...newProjects[id], tasks: [...newProjects[id].tasks, newTask]}
+            newState.projects = newProjects
             return newState
          });
       }
-      
-
 
    return {state, createProject, saveProject, cancelProject , selectProject, addTask}
 }
