@@ -7,7 +7,7 @@ const List = () => {
    return (
       <ul id="list">
          {
-            productsList.map(el => <li key={el.id}><Link to={`${el.id}`}>{el.name}</Link></li>)
+            productsList.map(el => <li key={el.id}><Link to={el.id}>{el.name}</Link></li>)
          }
       </ul>
    )
