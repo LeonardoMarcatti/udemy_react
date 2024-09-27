@@ -4,18 +4,10 @@ import EventItem from "../components/EventItem";
 import EventsList from '../components/EventsList'
 import getAuthToken from '../util/auth'
 
-const loadDetails = async ({request, params}) => {
-   const id = params.id
-   return defer({
-      event: await loadEvent(id),
-      events: retrieveEvents()
-   })
-}
-
 const deleteEvent = async ({request, params}) => {
    const id = params.id
    const token = getAuthToken()
-   const response = await fetch(`http://localhost:8080/events/${id}`, 
+   const response = await fetch(`http://192.168.1.160:8080/events/${id}`, 
    {  method: 'delete', 
    headers: {
       Authorization: `Bearer ${token}`
@@ -30,7 +22,7 @@ const deleteEvent = async ({request, params}) => {
 }
 
 const retrieveEvents = async () => {
-   const response = await fetch('http://localhost:8080/events');
+   const response = await fetch('http://192.168.1.160:8080/events');
    if (!response.ok) {
      throw json({message: 'Data could not be fetched'}, {status: 500})
    } else {
@@ -40,7 +32,7 @@ const retrieveEvents = async () => {
  }
 
  const loadEvent = async (id) => {
-   const data = await fetch(`http://localhost:8080/events/${id}`)
+   const data = await fetch(`http://192.168.1.160:8080/events/${id}`)
    if (!data.ok) {
       throw json({message: 'Could not fetch details fot the selected event'}, {status: 500})
    } else {
@@ -49,8 +41,14 @@ const retrieveEvents = async () => {
    }
  }
 
+ const loadDetails = async ({request, params}) => {
+   return defer({
+      event: await loadEvent(params.id),
+      events: retrieveEvents()
+   })
+}
+
 const EventDetail = () => {
-   console.log('detail');
    const {event, events} = useRouteLoaderData('eventID')
 
    return <>

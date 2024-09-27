@@ -19,8 +19,8 @@ const Error = () => {
    return <>
       <PageContent title={title}>
          <p>{message}</p>
+         <Link to="..">Return</Link>
       </PageContent>
-      <Link to="..">Return</Link>
    </>
 }
 

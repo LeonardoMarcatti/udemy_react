@@ -6,8 +6,6 @@ import { sendData } from './components/EventForm'
 import {sendAuthData} from './pages/Authentication'
 import Home from './pages/Home'
 import NewEvent from './pages/NewEvent'
-import Test from './pages/Test'
-import TestDetail from './pages/TestDetail'
 import EventsRoot from './pages/EventsRoot'
 import {newLetter} from './pages/Newsletter'
 import logout from './pages/Logout'
@@ -50,8 +48,6 @@ const router = createBrowserRouter([
         ]},
         {path: 'new', loader: checkAuthLoader, action: sendData, element: <NewEvent/>},
       ]},
-      {path: 'test', element: <Test/>},
-      {path: 'test/:id', element: <TestDetail/>},
       {path: 'newsletter',
         action: newLetter,
         element: <Suspense fallback={<p>Loading...</p>}><Newsletter /></Suspense>}

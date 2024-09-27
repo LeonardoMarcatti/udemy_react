@@ -4,9 +4,9 @@ import { json, useLoaderData, defer, Await } from 'react-router-dom';
 
 // Carrega a página e depois os dados vindos do servidor remoto
 const retrieveEvents = async () => {
-   const response = await fetch('http://localhost:8080/events');
+   const response = await fetch('http://192.168.1.160:8080/events');
    if (!response.ok) {
-      throw json({message: 'Data could not be fetched'}, {status: 500})
+      throw  new Error({message: 'Data could not be fetched'}, {status: 500})
    } else {
       const resData = await response.json();
       return resData.events
@@ -20,7 +20,6 @@ const eventsLoader = async () => {
 }
 
 const Events = () => {
-   console.log('events');
    const {events} = useLoaderData() // Recebe o objeto que vem da função defer
    return (
       <Suspense fallback={<h3 style={{textAlign: 'center'}}>Loading events...</h3>} >

@@ -12,7 +12,7 @@ const sendAuthData = async ({request, params}) => {
       throw json({message: 'Unsupported mode error'}, {status: 422})
    }
 
-   const result = await fetch(`http://localhost:8080/${mode}`, {
+   const result = await fetch(`http://192.168.1.160:8080/${mode}`, {
       method: 'post',
       headers: {
          'Content-Type': 'application/json'

@@ -1,6 +1,6 @@
 import { useNavigate, Form, useNavigation, useActionData, json, redirect } from 'react-router-dom'
 import classes from './EventForm.module.css'
-import React from 'react';
+import React, {Children} from 'react';
 import getAuthToken from '../util/auth';
 
 const sendData = async ({request, params}) => {
@@ -8,7 +8,7 @@ const sendData = async ({request, params}) => {
   
   const token = getAuthToken()
   const method = request.method
-  let url = 'http://localhost:8080/events/'
+  let url = 'http://192.168.1.160:8080/events/'
 
   if (method == 'PATCH') {
     url += params.id
@@ -61,7 +61,7 @@ const EventForm = ({ method, event }) => {
       {
         errors.length > 0 && <ul>
           {
-            React.Children.toArray(
+            Children.toArray(
               errors.map(el => <li>{el}</li>)
             )
           }

@@ -13,14 +13,11 @@ const Root = () => {
       if (!token) {
          return
       }
-
       if (token == 'EXPIRED') {
          submit(null, {action: '/logout', method: 'post'})
          return
       }
-
-      const tokenduration = getTokenDuration()
-      
+      const tokenduration = getTokenDuration()      
       setTimeout(() => {
          submit(null, {action: '/logout', method: 'post'})
       }, tokenduration);
