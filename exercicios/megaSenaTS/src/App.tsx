@@ -4,7 +4,7 @@ import { useAppDispatch} from './store/hook'
 import useNumber from './hooks/useNumbers';
 import styles from'./App.module.css';
 
-function App() {
+const App = () =>  {
   const {start, erase} = useNumber()
   const dispatch = useAppDispatch()
   const go = () => dispatch(start)

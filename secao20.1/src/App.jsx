@@ -24,33 +24,36 @@ const EditEvent = lazy(() => import('./pages/EditEvent'))
 
 const router = createBrowserRouter([
   {
-    path: '/', id: 'root', loader: getAuthToken, element: <Root/>, errorElement: <Error/> , children: [
+      path: '/', id: 'root', loader: getAuthToken, element: <Root/>, errorElement: <Error/> , children: [
       {index: true, element: <Home/>},
-      {path: 'auth', action: sendAuthData, 
-        element: <Suspense fallback={<p>Loading...</p>}><AuthenticationPage/></Suspense>},
+      {path: 'auth', action: sendAuthData, element: <Suspense fallback={<p>Loading...</p>}><AuthenticationPage/></Suspense>},
       {path: 'logout', action: logout},
       {path: 'events', element: <EventsRoot/>, children: [
-        {index: true, 
-          element: <Suspense fallback={<p>Loading...</p>}><Events/></Suspense>,
-          loader: () =>  import('./pages/Events').then(module => module.eventsLoader())
-        },
-        {path: ':id',
-          loader: (meta) => import('./pages/EventDetail').then(module => module.loadDetails(meta)),
+         {
+            index: true, 
+            element: <Suspense fallback={<p>Loading...</p>}><Events/></Suspense>,
+            loader: () =>  import('./pages/Events').then(module => module.eventsLoader())
+         },
+         {
+            path: ':id',
+            loader: (meta) => import('./pages/EventDetail').then(module => module.loadDetails(meta)),
             id: 'eventID', children: [
-          {index: true,
-            action: deleteEvent,
-            element: <Suspense fallback={<p>Loading...</p>}><EventDetail/></Suspense>
-          },
-          {path: 'editEvent',
-            loader: checkAuthLoader,
-            action: sendData,
-            element: <Suspense fallback={<p>Loading...</p>}><EditEvent/></Suspense>,}
-        ]},
-        {path: 'new', loader: checkAuthLoader, action: sendData, element: <NewEvent/>},
+               {
+                  index: true,
+                  action: deleteEvent,
+                  element: <Suspense fallback={<p>Loading...</p>}><EventDetail/></Suspense>
+               },
+               {
+                  path: 'editEvent',
+                  loader: checkAuthLoader,
+                  action: sendData,
+                  element: <Suspense fallback={<p>Loading...</p>}><EditEvent/></Suspense>,
+               }
+            ]
+         },
+         {path: 'new', loader: checkAuthLoader, action: sendData, element: <NewEvent/>},
       ]},
-      {path: 'newsletter',
-        action: newLetter,
-        element: <Suspense fallback={<p>Loading...</p>}><Newsletter /></Suspense>}
+      {path: 'newsletter', action: newLetter, element: <Suspense fallback={<p>Loading...</p>}><Newsletter /></Suspense>}
     ]
   }
 ])

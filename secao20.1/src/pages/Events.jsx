@@ -1,6 +1,6 @@
 import EventsList from '../components/EventsList';
 import React, {Suspense} from 'react';
-import { json, useLoaderData, defer, Await } from 'react-router-dom';
+import { useLoaderData, defer, Await } from 'react-router-dom';
 
 // Carrega a página e depois os dados vindos do servidor remoto
 const retrieveEvents = async () => {
@@ -13,7 +13,7 @@ const retrieveEvents = async () => {
    }
 }
 
-const eventsLoader = async () => {
+const eventsLoader = () => {
    return defer({
       events: retrieveEvents()
    })

@@ -9,9 +9,9 @@ const deleteEvent = async ({request, params}) => {
    const token = getAuthToken()
    const response = await fetch(`http://192.168.1.160:8080/events/${id}`, 
    {  method: 'delete', 
-   headers: {
-      Authorization: `Bearer ${token}`
-    },
+      headers: {
+         Authorization: `Bearer ${token}`
+      },
    })
 
    if (!response.ok) {
